@@ -1,0 +1,100 @@
+	html, body {
+		height: 100%;
+		/*font-size: 1em !important;*/
+		/*color: #000 !important;*/
+		font-family: 'Avenir Next',sans-serif !important;
+	}
+
+
+	#wrap {
+    	width: 850px;
+    	height: 90%;
+    	margin-left: auto;
+    	margin-right: auto;
+    	margin-top: 2em;
+	}
+
+	#name {
+		width:400px;
+		height: 50px;
+		background:#ff5555;
+		float:right;
+		margin-bottom: 2em;
+		position: relative;
+	}
+
+	#name text{
+		color:white;
+		font-size: 2em;
+		position:absolute;
+		bottom: -8px;
+		right:-2px;
+	}
+
+
+	#frame {
+    	clear:both;
+    	margin-top: 1em;
+    	border: 2px solid #ff5555;
+    	margin-bottom: 1em;
+	}
+
+	#nav {
+		width:90%;
+		margin:auto;
+	}
+
+	#nav ul {
+		display: table;
+		width: 100%;
+		list-style: none;
+	}
+	
+	#nav ul li {
+		display: table-cell;
+		text-align: center;
+	}
+	
+	#nav ul li a {
+		display: block;
+		text-decoration: none;
+		color:#ff5555;
+		font-size: 1.5em;
+	}
+	
+
+	#frame #textbox {
+		width: 80%;
+		margin: 5% 10%;
+	}
+
+
+	hr {
+		color: #ff5555;
+		width: 250px;
+	}
+
+	a {
+		text-decoration: none;
+		color: #ff5555;
+
+	}
+
+	#textbox {
+		font-size: 0.9em;
+	}
+
+
+	#textbox ul {
+		list-style-type: square;
+		
+	}
+	
+	#textbox ul li {
+		padding-bottom: 1em;
+	}
+
+	#cloud {
+		height:500px;
+		/*border:solid blue 1px;*/
+	}

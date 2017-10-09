@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Vital Vialas Portfolio</title>
+		<script src="https://d3js.org/d3.v4.js"></script>
+		<script src="https://d3js.org/d3.v3.js"></script>
+		<script src="d3.layout.cloud.js"></script>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+
+	<body>
+
+		<div id="wrap">
+			<div id="name">
+				 <text>Vital Vialas</text> 
+			</div>
+
+			<div id="frame">
+				<div id="nav">
+					<ul>
+						<li><a href="">CV</a></li>
+						<li><a href="">work</a></li>
+						<li><a href="">me irl</a></li>
+					 	<li><a href="">contact</a></li>
+					</ul> 
+				</div>
+				<div id="textbox">
+					<p>In 2016 I got a <strong>PhD on Bioinformatics</strong> (Computational Proteomics) at UCM (Universidad Complutense Madrid)</p>
+					<p>The thesis main contribution is the creation of web based tools and databases for large-scale proteomics studies on a yeast species.
+					Here it is: <a href="http://eprints.ucm.es/38747/1/T37573.pdf">for the brave</a> (some parts are in Spanish)
+					</p>
+					<p>Before that, in 2004, I graduated with a <strong>degree in Biology</strong> at Universidad de Extremadura</p>
+					<hr>
+					<p> Here is a list of positions I have held and places where I have worked:</p>
+					<ul>
+						<li>Researcher and Machine Learning Expert at Science for Life Laboratory. Stockholm, Sweden
+						<p>2016-March - currently. 1 year and 6 months</p></li>
+						<li>Bioinformatics Researcher at National Center for Biotechnology - CSIC, Madrid, Spain
+						<p>2014-April - 2014-December. 9 months</p></li>
+						<li>PhD on Computational Proteomics, Universidad Complutense de Madrid, Spain
+						<p>2007-May - 2014-April 7 years</p></li>
+					</ul>
+					<hr>
+					<p> And here is what my contacts in <a href="">LinkedIn</a> say I know about</p>
+					<i style="color: gray;font-size: 0.8em">Font-size is proportional to the times the skill is validated</i>
+					<div id="cloud"></div>
+				</div>
+			</div>
+		</div>
+
+	</body>
+
+
+	<script type="text/javascript">
+		
+
+	var fill = d3.scale.category20();
+
+	var width = 600,
+	  height = 500;
+
+
+	var data = [{"text": "MySQL", "size": 7}, {"text": "Linux", "size": 9}, {"text": "Ruby", "size": 5}, {"text": "Ruby on Rails", "size": 6}, {"text": "R", "size": 1}, {"text": "Github", "size": 2}, {"text": "Peptides", "size": 2}, {"text": "YAML", "size": 1}, {"text": "JavaScript", "size": 4}, {"text": "D3.js", "size": 1}, {"text": "RSpec", "size": 1}, {"text": "Python", "size": 5}, {"text": "C++", "size": 2}, {"text": "Git", "size": 4}, {"text": "XML", "size": 6}, {"text": "CSS", "size": 3}, {"text": "HAML", "size": 1}, {"text": "RVM", "size": 1}, {"text": "CoffeScript", "size": 1}, {"text": "Test Driven Development", "size": 1}, {"text": "Inkscape", "size": 1}, {"text": "Bioinformatics", "size": 11}, {"text": "Java", "size": 4}, {"text": "AJAX", "size": 6}, {"text": "Proteomics", "size": 3}, {"text": "SASS", "size": 3}, {"text": "Mass Spectrometry", "size": 1}, {"text": "SVG", "size": 1}, {"text": "BDD", "size": 1}, {"text": "Programming", "size": 4}, {"text": "HTML", "size": 5}]
+
+
+	var fontScale = d3.scale.linear()
+					.domain([d3.min(data, function(d) {return d.size;}), d3.max(data, function(d) {return d.size;})])
+					.range([6, 20]);
+
+
+
+	d3.layout.cloud().size([width, height])
+					.words(data)
+					.padding(5)
+					.rotate(function(d) { return 0; })
+					.font("Impact")
+					.text(function(d) { return d.text; }) // THE SOLUTION
+					.fontSize(function(d) { return fontScale(d.size); })
+					.on("end", draw)
+					.start();
+
+
+	function draw(words) {
+		d3.select("#cloud").append("svg")
+			.attr("width", width)
+			.attr("height", height)
+			.append("g")
+			.attr("transform", "translate(" + [width >> 1, height >> 1] + ")")
+			.selectAll("text")
+			.data(words)
+			.enter().append("text")
+			.style("font-size", function(d) { return d.size + "px"; })
+			.style("font-family", "Impact")
+			.style("fill", function(d, i) { return fill(i); })
+			.attr("text-anchor", "middle")
+			.attr("transform", function(d) {
+			  return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+			})
+			.text(function(d) { return d.text; });
+	  }
+
+
+
+	// set the viewbox to content bounding box (zooming in on the content, effectively trimming whitespace)
+
+	var svg = document.getElementsByTagName("svg")[0];
+	var bbox = svg.getBBox();
+	var viewBox = [bbox.x, bbox.y, bbox.width, bbox.height].join(" ");
+	svg.setAttribute("viewBox", viewBox);
+
+
+
+
+	</script>
+
+
+</html>
+
+<!-- wordcloud with skills and number of times validated from linkedin -->
