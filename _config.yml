@@ -1,3 +1,4 @@
 name: Vital Vialas Portfolio
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
+#permalink: /blog/:year/:month/:day/:title
+permalink: /work/:year/:month/:day/:title
