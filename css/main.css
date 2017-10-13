@@ -102,3 +102,35 @@
 		height:500px;
 		/*border:solid blue 1px;*/
 	}
+
+	img.oquote {
+		float:right;
+		margin-right:380px;
+	}
+
+	img.cquote {
+		float:right;
+		margin-right:0px;
+		margin-top: -20px;
+	}
+
+
+	blockquote {
+	margin-left:auto; 
+	margin-right:0;
+	font-family: Georgia, serif;
+	text-align: right;
+	font-size: 1.3em;
+	font-style: italic;
+	width: 340px;
+	padding: 0.25em 40px;
+	line-height: 1.45;
+	position: relative;
+	color: #383838;
+	}
+
+	cite.citewho {
+	float:right;	
+	padding:0.25em 40px;
+	margin-bottom: 2em;
+	}
