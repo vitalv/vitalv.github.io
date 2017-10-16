@@ -106,9 +106,7 @@
 		font-weight: bold;
 	}
 
-	ul.project_ul {
-		list-style: none;
-	}
+	
 
 	#textbox {
 		font-size: 0.9em;
@@ -122,6 +120,11 @@
 	
 	#textbox ul li {
 		padding-bottom: 1em;
+	}
+
+	#textbox ul.project_github {
+		list-style-type: none;
+		margin: 1em 0;
 	}
 
 	#cloud {
