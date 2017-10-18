@@ -18,7 +18,7 @@
     	margin-left: auto;
     	margin-right: auto;
     	margin-top: 2em;
-    	margin-bottom: -80px;
+    	margin-bottom: -60px;
 
 	}
 
@@ -86,7 +86,7 @@
 	
 
 	#frame #textbox {
-		width: 80%;
+		width: 90%;
 		margin: 5% 10%;
 	}
 
@@ -167,11 +167,25 @@
 
 
 	.site-footer, #wrap:after {
-	  height: 80px; 
+	  height: 60px; 
 	}
 	.site-footer {
 	 	background: #A9A9A9;
     	width: 850px;
     	margin-left: auto;
     	margin-right: auto;
+	}
+
+	#foot {
+		width: 300px;
+		text-align: center;
+		color: #555555;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+
+	#foot a.foot-link {
+
+		color: #555555;
 	}

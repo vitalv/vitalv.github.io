@@ -1,6 +1,10 @@
 <!-- <footer class="site-footer"> -->
 <footer class="site-footer">
 
- {{ site.author | escape }}
+<div id="foot">
+ <p>{{ site.author | escape }}</p>
+ <p><a class='foot-link', href="mailto:{{site.author-email}}">{{ site.author-email | escape }}</a></p>
+ <p><a class='foot-link', href="{{site.author-github}}">{{ site.author-github | escape }}</a></p>
+</div> 
 
 </footer>
