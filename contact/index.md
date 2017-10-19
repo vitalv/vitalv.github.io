@@ -1,4 +1,5 @@
 ---
 layout: default
-title: Vital Vialas Portfolio
+title: Contact Vital Vialas 
 ---
+
