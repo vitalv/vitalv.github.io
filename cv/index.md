@@ -17,7 +17,7 @@ title: Vital Vialas Portfolio
 
 ## Positions, places
 
-* Researcher and Machine Learning Expert at Science for Life Laboratory. Stockholm, Sweden
+* Researcher at Statistical Biotechnology group at Science for Life Laboratory. Stockholm, Sweden
 
   2016-March - currently. 1 year and 6 months
 
