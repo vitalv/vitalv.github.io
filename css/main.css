@@ -18,7 +18,7 @@
     	margin-left: auto;
     	margin-right: auto;
     	margin-top: 2em;
-    	margin-bottom: -60px;
+    	margin-bottom: -62px;
 
 	}
 
@@ -87,7 +87,7 @@
 
 	#frame #textbox {
 		width: 90%;
-		margin: 5% 10%;
+		margin: 6%;
 	}
 
 
@@ -112,6 +112,9 @@
 		font-size: 0.9em;
 	}
 
+	#textbox p {
+		margin: 1.5em 0;
+	}
 
 	#textbox ul {
 		list-style-type: square;
@@ -165,9 +168,37 @@
 	}
 
 
+	img {
+		margin: 2em 0 ;
+	}
+
+	#homeimg {
+		border: black;
+		width:518px;
+		margin-top: 200px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+
+
+	#contact {
+		width: 400px;
+		/*height: 120px;*/
+		margin-top: 100px;
+		margin-left: auto;
+		margin-right: -32px;
+		border: dashed #A9A9A9 1px;
+		border-radius: 5px;
+		padding: 30px;
+	}
+
+	.social-media-link {
+		margin:2em 0;
+	}
 
 	.site-footer, #wrap:after {
-	  height: 60px; 
+	  height: 66px; 
 	}
 	.site-footer {
 	 	background: #A9A9A9;
@@ -177,6 +208,7 @@
 	}
 
 	#foot {
+		/*font-family: 'Merriweather', Georgia, Times; 	*/
 		width: 300px;
 		text-align: center;
 		color: #555555;
@@ -186,6 +218,7 @@
 
 
 	#foot a.foot-link {
-
 		color: #555555;
+		text-decoration: none;
+		font-weight: bold; 	
 	}

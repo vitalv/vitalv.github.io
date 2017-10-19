@@ -1,10 +1,11 @@
 ---
 layout: project
-title: Python notebook with steps to do Analysis of Variance (ANOVA) and different clustering methods on a proteomics dataset
+title: Python notebook with steps to do Analysis of Variance (ANOVA) and different clustering and dimensionality reduction methods on a proteomics dataset
 date: 2016-11-18
 github-repo-name: cyanotebooks
 github-url: https://gist.github.com/vitalv/99e7e0032e7d2200ad4531491848bf17
 ---
+
 
 
 
@@ -29,6 +30,7 @@ def enrich(input_gene_list, background_gene_list):
         print category + "\t" + str(x) + "\t" + str(k) + "\t" + str(m) + "\t" + str(N)  + "\t" + str(p)
 
 enrich(list(data.geneID), set(all_prots))
+
 ```
 
     first_category_annotation	Genes in input list w/ annotation	Genes in input list	Genes in background list w/ annotation	Genes in background list	p-value
@@ -53,6 +55,8 @@ enrich(list(data.geneID), set(all_prots))
 
 
 ```python
+
+
 def correct_pvalues_for_multiple_testing(pvalues, correction_type = "Benjamini-Hochberg"):              
     pvalues = np.array(pvalues)
     n = float(pvalues.shape[0])
@@ -85,6 +89,8 @@ def correct_pvalues_for_multiple_testing(pvalues, correction_type = "Benjamini-H
 
 
 ```python
+
+
 def enrichGO(input_gene_list, background_gene_list, ontology):
     '''
     #ontology is one of : Biological Process, Molecular Function or Cellular Component
@@ -115,6 +121,8 @@ def enrichGO(input_gene_list, background_gene_list, ontology):
 
 
 ```python
+
+
 import statsmodels.sandbox.stats.multicomp as mc
 from IPython.display import display, HTML
 
@@ -160,6 +168,8 @@ pdist is equivalent to : [np.sqrt(np.sum((matrix[0]-matrix[1])**2)), np.sqrt(np.
 
 
 ```python
+
+
 #HIERARCHICAL CLUSTER ANALYSYS #############################################################################################
 import scipy.cluster.hierarchy as sch
 import scipy.spatial.distance as dist
@@ -235,6 +245,7 @@ dendroRows_com_euc, dendroCols, heatmap = hcluster(matrix, method='complete', me
 
 
 ```python
+
 #OTHER DENDROGRAM METHODS AND METRICS 
 
 dendroRows_sin_euc, dendroCols, heatmap = hcluster(matrix, method='single', metric='euclidean', dendro_color_threshold=0.45)
@@ -247,6 +258,7 @@ dendroRows_sin_euc, dendroCols, heatmap = hcluster(matrix, method='single', metr
 
 
 ```python
+
 dendroRows_com_cos, dendroCols, heatmap = hcluster(matrix, method='complete', metric='cosine', dendro_color_threshold=0.45)
 
 ```
@@ -271,6 +283,8 @@ The inertia or within-cluster sum-of-squares is minimized
 
 
 ```python
+
+
 #OTHER CLUSTERING METHODS BESIDES HCL: K-MEANS AND MEAN SHIFT ##############################################################
 from sklearn.cluster import KMeans
 from scipy.spatial.distance import pdist,cdist
@@ -317,7 +331,9 @@ plt.xlabel("k")
 ![png](img/output_11_1.png)
 
 
+
 #### Silhouette plots
+
 
 The silhouette plot displays a measure of how close each point in one cluster is to points in the neighboring clusters. Provides a way to assess parameters like number of clusters visually. This measure has a range of [-1, 1].
 
@@ -331,6 +347,8 @@ The Silhouette Coefficient is calculated using the mean intra-cluster distance *
 
 
 ```python
+
+
 def cluster_abundance(protein_idxs, ax=None):
     protein_set = data[data["Protein"].isin(data.iloc[idxs, :].Protein)]
     X = [1,2,3,4]
@@ -355,6 +373,8 @@ def cluster_abundance(protein_idxs, ax=None):
 
 
 ```python
+
+
 #Silhouette coefficients and cluster abundance plots ------------------------------------------------------------------------
 import matplotlib.cm as cm
 from sklearn.metrics import silhouette_score, silhouette_samples
@@ -589,3 +609,4 @@ for k in range(2,5):
 
 ![png](img/output_26_2.png)
 
+</div>
