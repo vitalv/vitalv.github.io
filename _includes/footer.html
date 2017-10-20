@@ -2,9 +2,10 @@
 <footer class="site-footer">
 
 <div id="foot">
- <p>{{ site.author | escape }}</p>
- <p><a class='foot-link', href="mailto:{{site.author-email}}">{{ site.author-email | escape }}</a></p>
- <p><a class='foot-link', href="{{site.author-github}}">{{ site.author-github | escape }}</a></p>
+ <p><strong>{{ site.author | escape }}</strong></p>
+ <!-- <p><a class='foot-link' target="_blank" href="mailto:{{site.author-email}}", >{{ site.author-email | escape }}</a></p> -->
+ <p><strong>@ uveuve at gmail</strong></p>
+ <p>{% include icon-github.html %}<a class='foot-link' target="_blank" href="{{site.author-github}}">github.com/vitalv</a></p>
 </div> 
 
 </footer>

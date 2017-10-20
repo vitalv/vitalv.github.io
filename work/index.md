@@ -11,10 +11,8 @@ title: Vital Vialas Portfolio
 
 
 {% for project in site.projects %}
-* <a class="project-link" href="{{ project.url }}" title="{{ project.title }}">{{ project.title }}</a>
-  * {% include icon-github.html username=site.github_username %} [{{project.github-repo-name}}]({{project.github-url}})
-  {: .project_github } 
-
-
+* [{{project.title}}]({{project.url}}){: .project-link}
+  * {% include icon-github.html username=site.github_username %} [{{project.github-repo-name}}]({{project.github-url}}){: target="_blank"}
+  {: .project_github} 
 {% endfor %}
 

@@ -10,7 +10,8 @@ title: Contact Vital Vialas
   
 
 <p>Drop me an email any time: 
-  <a href="mailto:{{site.author-email}}">{{ site.author-email | escape }}</a>
+  <!-- <a href="mailto:{{site.author-email}}">{{ site.author-email | escape }}</a> -->
+  <strong> uveuve at gmail </strong>
 </p>
 
 <p>

@@ -9,7 +9,7 @@ title: Vital Vialas Portfolio
 + In 2016 I got a <strong>PhD on Bioinformatics</strong> (Computational Proteomics) at UCM (Universidad Complutense Madrid)
 
   The thesis main contribution is the creation of web based tools and databases for large-scale proteomics studies on a yeast species.
-  Here it is: [for the brave](http://eprints.ucm.es/38747/1/T37573.pdf) (some parts are in Spanish)
+  Here it is: [for the brave](http://eprints.ucm.es/38747/1/T37573.pdf){:target="blank"} (some parts are in Spanish)
 	
 + Before that, in 2004, I graduated with a <strong>degree in Biology</strong> at Universidad de Extremadura
 	
@@ -31,7 +31,7 @@ title: Vital Vialas Portfolio
 
 
 ## Skills
-This is what my contacts in [LinkedIn](https://www.linkedin.com/in/vital-v-ab244121/) say I know about
+This is what my contacts in [LinkedIn](https://www.linkedin.com/in/vital-v-ab244121/){:target="blank"} say I know about
 
 <i style="color: gray;font-size: 0.8em">Font-size is proportional to the times the skill is validated</i>
 

@@ -3,7 +3,7 @@ layout: project
 title: Python notebook with steps to do Analysis of Variance (ANOVA) and different clustering and dimensionality reduction methods on a proteomics dataset
 date: 2016-11-18
 github-repo-name: cyanotebooks
-github-url: https://gist.github.com/vitalv/99e7e0032e7d2200ad4531491848bf17
+github-url: https://github.com/vitalv/cyanotebooks/blob/master/post_analysis_anova_and_clusters_plots.ipynb
 ---
 
 
