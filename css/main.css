@@ -18,7 +18,7 @@
     	margin-left: auto;
     	margin-right: auto;
     	margin-top: 2em;
-    	margin-bottom: -50px;
+    	margin-bottom: -60px;
 
 	}
 
@@ -197,7 +197,7 @@
 	}
 
 	.site-footer, #wrap:after {
-	  height: 61px; 
+	  height: 60px; 
 	}
 	.site-footer {
 	 	background: #A9A9A9;

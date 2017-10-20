@@ -56,7 +56,7 @@ rect.parent {
 </style>
 
 
-<div id="chart"></div>
+<div id="chart" style="overflow-y: hidden;"></div>
 
 
 
@@ -73,7 +73,7 @@ var defaults = {
     format: ".2%",
     title: "",
     width: 750,
-    height: 500
+    height: 600
 };
 function main(o, data) {
   var root,
