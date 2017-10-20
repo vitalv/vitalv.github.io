@@ -1,13 +1,12 @@
 ---
 layout: default
-title: Vital Vialas Portfolio
+title: Vital Vialas - Work
 ---
 
 ## Projects and stuff
 
 
-<!-- <p>Here is a list of selected pieces of work and projects that I have done, either for fun or at work</p> -->
-
+Here is a list of selected work and projects that I have not yet completely disavowed:
 
 
 {% for project in site.projects %}
