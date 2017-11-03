@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Python notebook with steps to do Annotation Enrichment Analysis (hypergeometric test) and different clustering and dimensionality reduction methods on a proteomics dataset
+title: A python notebook with steps to do Annotation Enrichment Analysis (hypergeometric test) and different clustering and dimensionality reduction methods on a proteomics dataset
 date: 2016-11-18
 github-repo-name: cyanotebooks
 github-url: https://github.com/vitalv/cyanotebooks/blob/master/post_analysis_anova_and_clusters_plots.ipynb
