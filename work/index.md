@@ -6,7 +6,7 @@ title: Vital Vialas - Work
 ## Projects and stuff
 
 
-Here is a list of selected works and projects that I have not yet completely disavowed:
+Here is a list of selected works and projects that I have not completely disavowed yet:
 
 
 {% for project in site.projects %}
