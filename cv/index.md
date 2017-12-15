@@ -14,6 +14,11 @@ title: Vital Vialas Portfolio
 + Before that, in 2004, I graduated with a <strong>degree in Biology</strong> at Universidad de Extremadura
 	
 
+### For academics: 
++ Here is my [Scholar profile](https://scholar.google.se/citations?user=WgCqEWkAAAAJ&hl=en){:target="blank"} (publications and h-index)
+ 
+ 
+ 
 
 ## Positions, places
 
