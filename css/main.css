@@ -147,17 +147,17 @@
 
 
 	blockquote {
-	margin-left:auto; 
-	margin-right:0;
-	font-family: Georgia, serif;
-	text-align: right;
-	font-size: 1.3em;
-	font-style: italic;
-	width: 340px;
-	padding: 0.25em 40px;
-	line-height: 1.45;
-	position: relative;
-	color: #383838;
+		margin-left:auto; 
+		margin-right:0;
+		font-family: Georgia, serif;
+		text-align: right;
+		font-size: 1.3em;
+		font-style: italic;
+		width: 340px;
+		padding: 0.25em 40px;
+		line-height: 1.45;
+		position: relative;
+		color: #383838;
 	}
 
 	cite.citewho {
@@ -197,13 +197,15 @@
 	}
 
 	.site-footer, #wrap:after {
-	  height: 60px; 
+		height: 60px; 
+	
 	}
 	.site-footer {
 	 	background: #A9A9A9;
     	width: 850px;
     	margin-left: auto;
     	margin-right: auto;
+
 	}
 
 	#foot {

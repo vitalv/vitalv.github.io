@@ -14,11 +14,7 @@ title: Vital Vialas Portfolio
 + Before that, in 2004, I graduated with a <strong>degree in Biology</strong> at Universidad de Extremadura
 	
 
-### For academics: 
-+ Here is my [Scholar profile](https://scholar.google.se/citations?user=WgCqEWkAAAAJ&hl=en){:target="blank"} (publications and h-index)
- 
- 
- 
+
 
 ## Positions, places
 
@@ -33,6 +29,11 @@ title: Vital Vialas Portfolio
 * PhD on Computational Proteomics, Universidad Complutense de Madrid, Spain
 
   2007-May - 2014-April 7 years
+
+
+### For academics: 
++ Here is my [Scholar profile](https://scholar.google.se/citations?user=WgCqEWkAAAAJ&hl=en){:target="blank"} (publications and h-index)
+ 
 
 
 ## Skills
