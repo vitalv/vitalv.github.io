@@ -20,7 +20,7 @@ title: Vital Vialas Portfolio
 
 * Researcher at Statistical Biotechnology group at Science for Life Laboratory. Stockholm, Sweden
 
-  2016-March - currently. 1 year and 6 months
+  2016-March - 2018-March. 2 yrs
 
 * Bioinformatics Researcher at National Center for Biotechnology - CSIC, Madrid, Spain
 
