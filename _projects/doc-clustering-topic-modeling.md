@@ -214,7 +214,7 @@ plt.xlabel("k")
 
 
 
-![png](output_21_1.png)
+![png](img/img/output_21_1.png)
 
 
 ### Not very clear elbow? Check out the Silhouette scores
@@ -619,7 +619,7 @@ plt.show()
 ```
 
 
-![png](output_39_0.png)
+![png](img/output_39_0.png)
 
 
 ## Dimensionality Reduction and Plot
@@ -686,7 +686,7 @@ scatter(tsne_cos_coords, km.labels_, lsa_cluster_topics)
 ```
 
 
-![png](output_45_0.png)
+![png](img/output_45_0.png)
 
 
 
