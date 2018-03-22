@@ -37,7 +37,7 @@ title: Vital Vialas Portfolio
 
 
 ## Skills
-This is what my contacts in [LinkedIn](https://www.linkedin.com/in/vital-v-ab244121/){:target="blank"} say I know about
+This is what my contacts in [LinkedIn](https://www.linkedin.com/in/vital-v-ab244121/){:target="blank"} say I'm good at
 
 <i style="color: gray;font-size: 0.8em">Font-size is proportional to the times the skill is validated</i>
 
