@@ -3,7 +3,7 @@ layout: default
 title: Vital Vialas - Work
 ---
 
-## Projects and stuff
+## Projects. Work and Fun.
 
 
 Here is a list of selected works and projects that I have not completely disavowed yet:
