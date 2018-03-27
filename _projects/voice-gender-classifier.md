@@ -364,7 +364,7 @@ plt.show()
 ```
 
 
-![png](img/output_32_0.png){:height="66%" width="66%"}
+![png](img/output_32_0.png){:height="80%" width="80%"}
 
 <br>
 #### Frequency
@@ -395,7 +395,7 @@ plt.show()
 
 
 
-![png](img/output_34_1.png){:height="66%" width="66%"}
+![png](img/output_34_1.png){:height="80%" width="80%"}
 
 Note the spike at 52 Hz. Present in many samples. Most likely noise
 
@@ -419,7 +419,7 @@ plt.show()
 ```
 
 
-![png](img/output_37_0.png){:height="66%" width="66%"}
+![png](img/output_37_0.png){:height="80%" width="80%"}
 
 
 ### 5 Classification models
@@ -469,7 +469,7 @@ plt.show()
 ```
 
 
-![png](img/output_44_0.png){:height="66%" width="66%"}
+![png](img/output_44_0.png){:height="80%" width="80%"}
 
 
 
@@ -484,7 +484,7 @@ plt.show()
 ```
 
 
-![png](img/output_45_0_v.png){:height="66%" width="66%"}
+![png](img/output_45_0_v.png){:height="80%" width="80%"}
 
 
 
@@ -499,7 +499,7 @@ plt.show()
 ```
 
 
-![png](img/output_46_0.png){:height="66%" width="66%"}
+![png](img/output_46_0.png){:height="80%" width="80%"}
 
 
 ### Features Distribution on the split (male/female) dataset
@@ -538,7 +538,7 @@ plt.show()
 ```
 
 
-![png](img/output_48_0.png){:height="66%" width="66%"}
+![png](img/output_48_0.png){:height="80%" width="80%"}
 
 
 ### Modeling using different ML algorithms from sklearn
@@ -661,7 +661,7 @@ plot_feature_importances_mydata(tree,  '#45935B')
 ```
 
 
-![png](img/output_54_0.png){:height="66%" width="66%"}
+![png](img/output_54_0.png){:height="80%" width="80%"}
 
 
 
@@ -672,7 +672,7 @@ plot_feature_importances_mydata(forest, '#45789D')
 ```
 
 
-![png](img/output_55_0.png){:height="66%" width="66%"}
+![png](img/output_55_0.png){:height="80%" width="80%"}
 
 
 
@@ -683,7 +683,7 @@ plot_feature_importances_mydata(gbrt, '#AD413C')
 ```
 
 
-![png](img/output_56_0.png){:height="66%" width="66%"}
+![png](img/output_56_0.png){:height="80%" width="80%"}
 
 
 
@@ -702,7 +702,7 @@ plt.show()
 ```
 
 
-![png](img/output_57_0.png){:height="66%" width="66%"}
+![png](img/output_57_0.png){:height="80%" width="80%"}
 
 
 ### Discussion. Feature selection. Model performance and applicability
