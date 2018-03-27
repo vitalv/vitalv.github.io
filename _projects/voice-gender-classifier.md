@@ -156,12 +156,14 @@ australian_pattern = re.compile('[Aa]ustralian')
 adult_pattern = re.compile('[Aa]dult')
 youth_pattern = re.compile('[Yy]outh')
 senior_pattern = re.compile('[Ss]enior')
+
 ```
-
+<br>
 #### Define some functions that we will use to extract the metadata and more importantly the features from the wav files
-
+<br>
 
 ```python
+
 def get_metadata(readme_file):
 
     #define variables in case startswith does not work:
@@ -174,10 +176,12 @@ def get_metadata(readme_file):
         elif line.startswith("Pronunciation dialect:"): 
             pronunciation = line.split(":")[1].strip()
     return gender, age_range, pronunciation
+
 ```
 
 
 ```python
+
 def get_features(frequencies):
 
     print "\nExtracting features "
@@ -189,10 +193,12 @@ def get_features(frequencies):
     q75,q25   = np.percentile(frequencies, [75 ,25])
     iqr       = q75 - q25
     return nobs, mean, skew, kurtosis, median, mode, std, low, peak, q25, q75, iqr
+
 ```
 
 
 ```python
+
 def get_date(sample_name):
 
     try:
@@ -200,17 +206,21 @@ def get_date(sample_name):
     except AttributeError:
         date = '20000000'
     return date
+
 ```
 
 
 ```python
+
 def get_user_name(sample_name):
 
     return re.compile("[-_]").split(sample_name)[0]
+
 ```
 
 
 ```python
+
 def homogenize_format(gender, age_range, pronunciation):
 
     #Homogenize gender format
@@ -233,10 +243,12 @@ def homogenize_format(gender, age_range, pronunciation):
     else: age_range = 'Unknown'
 
     return gender, age_range, pronunciation
+
 ```
 
 
 ```python
+
 def get_frequencies(sample_wav_folder):
     '''
     extract list of dominant frequencies in sliding windows of duration defined by 'step' for each of the 10 wav files and return an array
@@ -266,12 +278,15 @@ def get_frequencies(sample_wav_folder):
     frequencies = [item for sublist in frequencies_lol for item in sublist]
 
     return frequencies
+
 ```
 
+<br>
 #### And now iterate over the samples (folders) and look into the wav folder within them to read the wav files
-
+<br>
 
 ```python
+
 for i in range(n_samples):
         
     #get the path to the wav files (.raw/wav) and to the README file (.raw/etc/README)
@@ -316,22 +331,28 @@ The code for this plots is also in **sample_plots.py**
 
 
 ```python
+
 import matplotlib.pyplot as plt
 import seaborn as sb 
 sb.set_style("whitegrid", {'axes.grid' : False})
+
 ```
 
 
 ```python
+
 wav_file = '/home/vitalv/voice-gender-classifier/raw/chris-20090325-esw/wav/a0060.wav'#Noise at 50Hz #check plot_frequency
 #wav_file = '/home/vitalv/voice-gender-classifier/raw/anonymous-20100621-cdr/wav/a0166.wav'
 rate, data = wavfile.read(wav_file)
+
 ```
 
+<br>
 #### Amplitude vs Time
-
+<br>
 
 ```python
+
 time = np.arange(0, float(data.shape[0]), 1) / rate
 plt.figure(1, figsize=(20,9))
 plt.subplot(111)
@@ -345,11 +366,12 @@ plt.show()
 
 ![png](img/output_32_0.png){:height="50%" width="50%"}
 
-
+<br>
 #### Frequency
-
+<br>
 
 ```python
+
 fourier = np.fft.fft(data)
 
 n = len(data)
@@ -365,6 +387,7 @@ plt.plot(x, y, color='teal', linewidth=0.5)
 plt.xlabel('Frequency (Hz)', fontsize=18)
 plt.ylabel('Amplitude (dB)', fontsize=18)
 plt.show()
+
 ```
 
     /usr/local/lib/python2.7/dist-packages/numpy/core/numeric.py:531: ComplexWarning: Casting complex values to real discards the imaginary part
@@ -380,6 +403,7 @@ Note the spike at 52 Hz. Present in many samples. Most likely noise
 
 
 ```python
+
 # See http://myinspirationinformation.com/uncategorized/audio-signals-in-python/
 
 plt.figure(1,figsize=(20,9))
@@ -390,6 +414,7 @@ plt.xlabel('Time (s)', fontsize=18)
 plt.ylabel('Frequency (Hz)', fontsize=18)
 cbar.set_label('Amplitude dB', fontsize=18)
 plt.show()
+
 ```
 
 
@@ -402,6 +427,7 @@ Bunch of sklearn imports. Rest of modules have already been imported, but import
 
 
 ```python
+
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sb
@@ -415,24 +441,29 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.svm import SVC
 from sklearn.neural_network import MLPClassifier 
+
 ```
 
 Read dataframe that I saved in step 3 (feature extraction)
 
 
 ```python
+
 mydata = pd.read_csv('myData_filtered.csv')
+
 ```
 
 #### Basic barplots on number of male/female; pronunciation types; age_ranges
 
 
 ```python
+
 plt.figure(1,figsize=(15,9))
 sb.countplot(x='gender', data=mydata, palette='Greens_d')
 plt.xlabel('Gender')
 plt.ylabel('Count')
 plt.show()
+
 ```
 
 
@@ -441,11 +472,13 @@ plt.show()
 
 
 ```python
+
 plt.figure(1,figsize=(15,9))
 sb.countplot(x='pronunciation', data=mydata, palette='Blues_d')
 plt.xlabel('pronunciation', fontsize=18)
 plt.ylabel('Count', fontsize=18)
 plt.show()
+
 ```
 
 
@@ -454,11 +487,13 @@ plt.show()
 
 
 ```python
+
 plt.figure(1,figsize=(15,9))
 sb.countplot(x='age_range', data=mydata, palette='Reds_d')
 plt.xlabel('Age Range', fontsize=18)
 plt.ylabel('Count', fontsize=18)
 plt.show()
+
 ```
 
 
@@ -469,6 +504,7 @@ plt.show()
 
 
 ```python
+
 import warnings; warnings.simplefilter('ignore')
 sb.set_style("whitegrid", {'axes.grid' : False})
 
@@ -519,6 +555,7 @@ plt.show()
 
 
 ```python
+
 #Prepare data for modeling
 mydata = mydata[mydata.gender != 'not_specified']
 mydata.loc[:,'gender'][mydata['gender']=="Male"] = 0
@@ -564,32 +601,34 @@ mlp = MLPClassifier(random_state=0).fit(X_train, y_train)
 print("\nMultilayer Perceptron")
 print("Accuracy on training set: {:.3f}".format(mlp.score(X_train, y_train)))
 print("Accuracy on test set: {:.3f}".format(mlp.score(X_test, y_test)))
+
 ```
 
     
-    Decision Tree
-    Accuracy on training set: 1.000
-    Accuracy on test set: 0.899
+Decision Tree
+Accuracy on training set: 1.000
+Accuracy on test set: 0.899
     
-    Random Forests
-    Accuracy on training set: 0.989
-    Accuracy on test set: 0.933
+Random Forests
+Accuracy on training set: 0.989
+Accuracy on test set: 0.933
     
-    Gradient Boosting
-    Accuracy on training set: 0.958
-    Accuracy on test set: 0.937
+Gradient Boosting
+Accuracy on training set: 0.958
+Accuracy on test set: 0.937
     
-    Support Vector Machine
-    Accuracy on training set: 0.927
-    Accuracy on test set: 0.921
+Support Vector Machine
+Accuracy on training set: 0.927
+Accuracy on test set: 0.921
     
-    Multilayer Perceptron
-    Accuracy on training set: 0.937
-    Accuracy on test set: 0.933
+Multilayer Perceptron
+Accuracy on training set: 0.937
+Accuracy on test set: 0.933
 
 
 
 ```python
+
 def plot_feature_importances_mydata(model, c):
     n_features = len(features)
     plt.figure(1,figsize=(18,10))
@@ -599,6 +638,7 @@ def plot_feature_importances_mydata(model, c):
     plt.xlabel("Independent Variable")
     plt.title(model.__class__.__name__)
     plt.show()
+
 ```
 
 ### Assessment of feature importances
@@ -612,7 +652,9 @@ Then **kurtosis** and **skewness** appear in the top 3 most important features f
 
 
 ```python
+
 plot_feature_importances_mydata(tree,  '#45935B')
+
 ```
 
 
@@ -621,7 +663,9 @@ plot_feature_importances_mydata(tree,  '#45935B')
 
 
 ```python
+
 plot_feature_importances_mydata(forest, '#45789D')
+
 ```
 
 
@@ -630,7 +674,9 @@ plot_feature_importances_mydata(forest, '#45789D')
 
 
 ```python
+
 plot_feature_importances_mydata(gbrt, '#AD413C')
+
 ```
 
 
@@ -639,6 +685,7 @@ plot_feature_importances_mydata(gbrt, '#AD413C')
 
 
 ```python
+
 #Plot the heatmap on first layer weights for neural network
 plt.figure(figsize=(50, len(features)))
 plt.imshow(mlp.coefs_[0], interpolation='none', cmap='viridis')
@@ -648,6 +695,7 @@ plt.ylabel("Input feature")
 plt.colorbar().set_label('Importance')
 
 plt.show()
+
 ```
 
 
