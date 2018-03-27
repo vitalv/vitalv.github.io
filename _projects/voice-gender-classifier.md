@@ -364,7 +364,7 @@ plt.show()
 ```
 
 
-![png](img/output_32_0.png){:height="50%" width="50%"}
+![png](img/output_32_0.png){:height="66%" width="66%"}
 
 <br>
 #### Frequency
@@ -395,12 +395,13 @@ plt.show()
 
 
 
-![png](img/output_34_1.png){:height="50%" width="50%"}
+![png](img/output_34_1.png){:height="66%" width="66%"}
 
 Note the spike at 52 Hz. Present in many samples. Most likely noise
 
+<br>
 #### And Heatmap
-
+<br>
 
 ```python
 
@@ -418,7 +419,7 @@ plt.show()
 ```
 
 
-![png](img/output_37_0.png){:height="50%" width="50%"}
+![png](img/output_37_0.png){:height="66%" width="66%"}
 
 
 ### 5 Classification models
@@ -453,8 +454,9 @@ mydata = pd.read_csv('myData_filtered.csv')
 
 ```
 
+<br>
 #### Basic barplots on number of male/female; pronunciation types; age_ranges
-
+<br>
 
 ```python
 
@@ -467,7 +469,7 @@ plt.show()
 ```
 
 
-![png](img/output_44_0.png){:height="50%" width="50%"}
+![png](img/output_44_0.png){:height="66%" width="66%"}
 
 
 
@@ -482,7 +484,7 @@ plt.show()
 ```
 
 
-![png](img/output_45_0_v.png){:height="50%" width="50%"}
+![png](img/output_45_0_v.png){:height="66%" width="66%"}
 
 
 
@@ -497,7 +499,7 @@ plt.show()
 ```
 
 
-![png](img/output_46_0.png){:height="50%" width="50%"}
+![png](img/output_46_0.png){:height="66%" width="66%"}
 
 
 ### Features Distribution on the split (male/female) dataset
@@ -536,11 +538,12 @@ plt.show()
 ```
 
 
-![png](img/output_48_0.png){:height="50%" width="50%"}
+![png](img/output_48_0.png){:height="66%" width="66%"}
 
 
 ### Modeling using different ML algorithms from sklearn
 
+<br>
 #### Try different ML algorithms. From Sklearn:
 
 **Decision Trees (DTs)** are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features.
@@ -658,7 +661,7 @@ plot_feature_importances_mydata(tree,  '#45935B')
 ```
 
 
-![png](img/output_54_0.png){:height="50%" width="50%"}
+![png](img/output_54_0.png){:height="66%" width="66%"}
 
 
 
@@ -669,7 +672,7 @@ plot_feature_importances_mydata(forest, '#45789D')
 ```
 
 
-![png](img/output_55_0.png){:height="50%" width="50%"}
+![png](img/output_55_0.png){:height="66%" width="66%"}
 
 
 
@@ -680,7 +683,7 @@ plot_feature_importances_mydata(gbrt, '#AD413C')
 ```
 
 
-![png](img/output_56_0.png){:height="50%" width="50%"}
+![png](img/output_56_0.png){:height="66%" width="66%"}
 
 
 
@@ -699,7 +702,7 @@ plt.show()
 ```
 
 
-![png](img/output_57_0.png){:height="50%" width="50%"}
+![png](img/output_57_0.png){:height="66%" width="66%"}
 
 
 ### Discussion. Feature selection. Model performance and applicability
