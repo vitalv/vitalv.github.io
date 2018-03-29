@@ -49,6 +49,7 @@
 	a.home-link {
 		text-decoration: none;
 		color:white;
+		outline:none;
 	}
 
 	#frame {
@@ -97,6 +98,7 @@
 	a {
 		text-decoration: underline;
 		color: #686868;
+		outline:none;
 	}
 
 	a.project-link {
