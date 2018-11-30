@@ -13,5 +13,5 @@ Here is a list of selected works and projects that I have not completely disavow
 * [{{project.title}}]({{project.url}}){: .project-link}
   * {% include icon-github.html username=site.github_username %} [{{project.github-repo-name}}]({{project.github-url}}){: target="_blank"}
   {: .project_github} 
+  <hr>
 {% endfor %}
-
