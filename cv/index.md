@@ -18,19 +18,19 @@ title: Vital Vialas Portfolio
 
 ## Positions, places
 
-* Researcher at Statistical Biotechnology group at Science for Life Laboratory. Stockholm, Sweden
+* Statistical Biotechnology group at Science for Life Laboratory. Stockholm, Sweden
 
   2016-March - 2018-March. 2 yrs
 
-  * Data processing and analysis with Python (pandas, numpy, sklearn) using statistical and machine learning methods.
+  * Data processing and analysis with **Python** (pandas, numpy, sklearn) using **statistical and machine learning methods**.
 	Logistic regression, Analysis of Variance, diverse hypothesis testing models. Clustering (Hierarchical clustering, K-Means, Means shift) classification / prediction (Support Vector Machines, K-Nearest Neighbors, Decision Trees, Random Forest)
 	Data visualization (matplotlib, D3js)
 
-* Bioinformatics Researcher at National Center for Biotechnology - CSIC, Madrid, Spain
+* National Center for Biotechnology - CSIC, Madrid, Spain
 
   2014-April - 2014-December. 9 months
 
-  * Development of databases and data collection and analysis with R (regression, outlier detection, boxplots) in the Human Proteome Project
+  * Development of **databases**, data collection and analysis with **R** (regression, outlier detection, boxplots) in the Human Proteome Project
 
 * PhD on Computational Proteomics, Universidad Complutense de Madrid, Spain
 
