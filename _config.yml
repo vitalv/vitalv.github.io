@@ -3,6 +3,7 @@ author: Vital Vialas
 author-email: uveuve@gmail.com 
 author-github: https://github.com/vitalv
 markdown: kramdown
+theme: minimal
 highlighter: rouge
 
 
