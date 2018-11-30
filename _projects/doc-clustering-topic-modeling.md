@@ -209,12 +209,11 @@ plt.xlabel("k")
 
 
 
-    <matplotlib.text.Text at 0x7fcb3843e490>
 
 
 
 
-![png](img/img/output_21_1.png)
+![png](img/output_21_1.png)
 
 
 ### Not very clear elbow? Check out the Silhouette scores

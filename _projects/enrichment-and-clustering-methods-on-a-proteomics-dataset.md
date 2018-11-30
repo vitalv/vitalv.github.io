@@ -11,7 +11,6 @@ github-url: https://github.com/vitalv/cyanotebooks/blob/master/post_analysis_ano
 
 
 ```python
-
 #Gene Annotation Enrichment #################################################################################################
 def enrich(input_gene_list, background_gene_list):
     category_f = "/home/vitalv/cyano/category.txt"
@@ -32,12 +31,48 @@ def enrich(input_gene_list, background_gene_list):
 enrich(list(data.geneID), set(all_prots))
 
 ```
-
-    first_category_annotation	Genes in input list w/ annotation	Genes in input list	Genes in background list w/ annotation	Genes in background list	p-value
-    Amino acid biosynthesis	60	973	91	2717	7.35140656231e-10
-    Biosynthesis of cofactors, prosthetic groups, and carriers	47	973	113	2717	0.0804178252749
-    Cell envelope	37	973	59	2717	5.95410352239e-06
-    Cellular processes	40	973	66	2717	9.66099919551e-06
+<table>
+    <hr>
+        <td>first_category_annotation</td>	
+        <td>Genes in input list w/ annotation</td>
+        <td>Genes in input list</td>
+        <td>Genes in background list w/ annotation</td>
+        <td>Genes in background list</td>
+        <td>p-value</td>
+    <tr>
+        <td>Amino acid biosynthesis</td>
+        <td>60</td>
+        <td>973</td>
+        <td>91</td>
+        <td>2717</td>
+        <td>7.35140656231e-10</td>
+    </tr>
+    <tr>
+        <td>Biosynthesis of cofactors, prosthetic groups, and carriers</td>
+        <td>47</td>
+        <td>973</td>
+        <td>113</td>
+        <td>2717</td>
+        <td>0.0804178252749</td>
+    </tr>
+    <tr>
+        <td>Cell envelope</td>
+        <td>37</td>
+        <td>973</td>
+        <td>59</td>
+        <td>2717</td>
+        <td>5.95410352239e-06</td>
+    </tr>
+    <tr>
+        <td>Cellular processes</td>
+        <td>40</td>
+        <td>973</td>
+        <td>66</td>
+        <td>2717</td>
+        <td>9.66099919551e-06</td>
+    </tr>
+</table>
+<!--
     Central intermediary metabolism	17	973	28	2717	0.00192925954538
     Energy metabolism	55	973	86	2717	1.90009238025e-08
     Fatty acid, phospholipid and sterol metabolism	16	973	30	2717	0.0153188366843
@@ -51,12 +86,10 @@ enrich(list(data.geneID), set(all_prots))
     Other categories	78	973	209	2717	0.290216031188
     Hypothetical	250	973	946	2717	1.0
     Unknown	95	973	417	2717	0.999999999616
-
-
+</table>
+-->
 
 ```python
-
-
 def correct_pvalues_for_multiple_testing(pvalues, correction_type = "Benjamini-Hochberg"):              
     pvalues = np.array(pvalues)
     n = float(pvalues.shape[0])
@@ -89,8 +122,6 @@ def correct_pvalues_for_multiple_testing(pvalues, correction_type = "Benjamini-H
 
 
 ```python
-
-
 def enrichGO(input_gene_list, background_gene_list, ontology):
     '''
     #ontology is one of : Biological Process, Molecular Function or Cellular Component
@@ -121,8 +152,6 @@ def enrichGO(input_gene_list, background_gene_list, ontology):
 
 
 ```python
-
-
 import statsmodels.sandbox.stats.multicomp as mc
 from IPython.display import display, HTML
 
@@ -164,12 +193,10 @@ for the point:
 (xb, yb, zb)  
 the euclidean distance is:   
 euclidean_dist = sqrt((xa-xb)^2 + (ya-yb)^2 + (za-zb)^2)  
-pdist is equivalent to : [np.sqrt(np.sum((matrix[0]-matrix[1])**2)), np.sqrt(np.sum((matrix[0]-matrix[2])**2)), ... ]  
+pdist is equivalent to : [np.sqrt(np.sum((matrix[0]-matrix[1])^2)), np.sqrt(np.sum((matrix[0]-matrix[2])^2)), ... ]  
 
 
 ```python
-
-
 #HIERARCHICAL CLUSTER ANALYSYS #############################################################################################
 import scipy.cluster.hierarchy as sch
 import scipy.spatial.distance as dist
@@ -182,7 +209,6 @@ import scipy.spatial.distance as dist
 matrix = 2**data[samples].values
 
  
-#http://stackoverflow.com/questions/2982929/plotting-results-of-hierarchical-clustering-ontop-of-a-matrix-of-data-in-python/
 def hcluster(matrix, method='complete', metric='euclidean', dendro_color_threshold=0.45):
     fig = plt.figure(figsize=(16,10))
     #First dendrogram. Rows. Genes.
@@ -245,7 +271,6 @@ dendroRows_com_euc, dendroCols, heatmap = hcluster(matrix, method='complete', me
 
 
 ```python
-
 #OTHER DENDROGRAM METHODS AND METRICS 
 
 dendroRows_sin_euc, dendroCols, heatmap = hcluster(matrix, method='single', metric='euclidean', dendro_color_threshold=0.45)
@@ -258,7 +283,6 @@ dendroRows_sin_euc, dendroCols, heatmap = hcluster(matrix, method='single', metr
 
 
 ```python
-
 dendroRows_com_cos, dendroCols, heatmap = hcluster(matrix, method='complete', metric='cosine', dendro_color_threshold=0.45)
 
 ```
@@ -283,8 +307,6 @@ The inertia or within-cluster sum-of-squares is minimized
 
 
 ```python
-
-
 #OTHER CLUSTERING METHODS BESIDES HCL: K-MEANS AND MEAN SHIFT ##############################################################
 from sklearn.cluster import KMeans
 from scipy.spatial.distance import pdist,cdist
@@ -347,8 +369,6 @@ The Silhouette Coefficient is calculated using the mean intra-cluster distance *
 
 
 ```python
-
-
 def cluster_abundance(protein_idxs, ax=None):
     protein_set = data[data["Protein"].isin(data.iloc[idxs, :].Protein)]
     X = [1,2,3,4]
@@ -373,8 +393,6 @@ def cluster_abundance(protein_idxs, ax=None):
 
 
 ```python
-
-
 #Silhouette coefficients and cluster abundance plots ------------------------------------------------------------------------
 import matplotlib.cm as cm
 from sklearn.metrics import silhouette_score, silhouette_samples
@@ -609,4 +627,3 @@ for k in range(2,5):
 
 ![png](img/output_26_2.png)
 
-</div>

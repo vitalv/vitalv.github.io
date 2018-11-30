@@ -4,17 +4,21 @@ title: Vital Vialas In Real Life
 ---
 
 
-![oquote]({{site.url}}/assets/img/openquote.svg){: .oquote } 
+ 
 
-> You make a great impression even though you're not flooding the Internet with social media updates :)		
+> ![oquote]({{site.url}}/assets/img/openquote.svg){: .oquote } &nbsp;You make a great impression even though you're not flooding the Internet with social media updates :) &nbsp;	![cquote]({{site.url}}/assets/img/closequote.svg){: .cquote } 
 
-![cquote]({{site.url}}/assets/img/closequote.svg){: .cquote } 
 
-<cite class="citewho">Some guy from a job I once applied to</cite>
+<p style="text-align: right; margin-right: 200px; ">
+<cite >Some guy from a job I once applied to</cite>
+</p>
 
-<p style="clear:both">
+<p style="clear:both; margin-top: 100px;">
 True, I might not be the most active facebook poster or twitter tweeter.  
-But I value them as a way to sort of "meet" someone when you don't know them in person.</p>  
+</p>
+<p style="clear:both">
+But I value them as a way to sort of "meet" someone when you don't know them in person.
+</p>  
 
 <p>
 So here is a list of links to <i>me</i> in some social networks:

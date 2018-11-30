@@ -11,7 +11,7 @@ title: Vital Vialas Portfolio
   The thesis main contribution is the creation of web based tools and databases for large-scale proteomics studies on a yeast species.
   Here it is: [for the brave](http://eprints.ucm.es/38747/1/T37573.pdf){:target="blank"} (some parts are in Spanish)
 	
-+ Before that, in 2004, I graduated with a <strong>degree in Biology</strong> at Universidad de Extremadura
++ Before that, in 2004, I got a bachelors <strong>degree in Biology</strong> at Universidad de Extremadura
 	
 
 
@@ -22,9 +22,15 @@ title: Vital Vialas Portfolio
 
   2016-March - 2018-March. 2 yrs
 
+  * Data processing and analysis with Python (pandas, numpy, sklearn) using statistical and machine learning methods.
+	Logistic regression, Analysis of Variance, diverse hypothesis testing models. Clustering (Hierarchical clustering, K-Means, Means shift) classification / prediction (Support Vector Machines, K-Nearest Neighbors, Decision Trees, Random Forest)
+	Data visualization (matplotlib, D3js)
+
 * Bioinformatics Researcher at National Center for Biotechnology - CSIC, Madrid, Spain
 
   2014-April - 2014-December. 9 months
+
+  * Development of databases and data collection and analysis with R (regression, outlier detection, boxplots) in the Human Proteome Project
 
 * PhD on Computational Proteomics, Universidad Complutense de Madrid, Spain
 
@@ -37,7 +43,7 @@ title: Vital Vialas Portfolio
 
 
 ## Skills
-This is what my contacts in [LinkedIn](https://www.linkedin.com/in/vital-v-ab244121/){:target="blank"} say I'm good at
+This is what my contacts in [LinkedIn](https://www.linkedin.com/in/vital-vialas-ab244121/){:target="blank"} say I'm good at
 
 <i style="color: gray;font-size: 0.8em">Font-size is proportional to the times the skill is validated</i>
 

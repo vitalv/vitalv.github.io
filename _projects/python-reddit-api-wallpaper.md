@@ -6,9 +6,7 @@ github-repo-name: let-reddit-pick-my-wallpaper
 github-url: https://github.com/vitalv/let-reddit-pick-my-wallpaper
 ---
 
-
-{% highlight python %}
-
+```python
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
@@ -42,18 +40,13 @@ username=redit_user_name
 password=not.my.password
 user_agent=pc:r_wallpapers_sets_my_wallpaper:0.1
 '''
-
-
 parser = argparse.ArgumentParser()
 parser.add_argument("--subreddit", required=True, 
 	help="name of the subreddit to fetch image from. E.g: 'wallpapers' or 'EarthPorn'")
 parser.add_argument("--top", required=True, 
 	help="subreddit Top time-limit submission: 'day', 'week', 'year'")
-
-
 home_dir = os.path.expanduser('~')
 wallpapers_dir = os.path.join(home_dir, ".wallpapers")
-
 
 
 def get_submission(subreddit, time, limit):
@@ -217,5 +210,4 @@ if __name__ == "__main__":
 
 	main()
 
-
-{% endhighlight %}
+```
