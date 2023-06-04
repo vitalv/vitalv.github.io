@@ -18,6 +18,21 @@ title: Vital Vialas Portfolio
 
 ## Positions, places
 
+* Data Scientist at Navis (Software for cargo ships terminals). Valencia, Spain
+
+  2023-March - 
+
+  * AI/ML models for for predicting vessel - crane productivity, container load and discharge moves, and more
+
+* Data Scientist at Airmee (Tech-logistics startup). Stockholm, Sweden
+
+  2019-March - 2023-Jan. ~3 yrs
+
+  * Involved in the implementation of an optimization platform for last-mile deliveries in Sweden: Vehicle Routing Problem, ETA/service time prediction and more
+    using **Python** and the data science ecosystem (pandas, numpy, sklearn) and GIS software QGIS, PostGIS
+
+
+
 * Statistical Biotechnology group at Science for Life Laboratory. Stockholm, Sweden
 
   2016-March - 2018-March. 2 yrs
