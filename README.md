@@ -1,3 +1,3 @@
-# vitalv.github.io
-### Vital Vialas personal portfolio - web site. 
-#### https://vitalv.github.io
+# vital vialas portfolio
+
+Don't forget to Update Readme! 
