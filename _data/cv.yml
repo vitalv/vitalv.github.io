@@ -1,0 +1,41 @@
+- title: General Information
+  type: map
+  contents:
+    - name: Full Name
+      value: Vital Vialas
+    - name: Date of Birth
+      value: 17th Dec 1981
+    - name: Languages
+      value: Spanish, English, French, Swedish
+
+- title: Education
+  type: time_table
+  contents:
+    - title: PhD. Doctorado
+      institution: Universidad Complutense, Madrid, Spain
+      year: 2016
+      description:
+        - Bioinformatics / Proteomics
+    - title: Bachelor's Degree. Biology
+      institution: Universidad de Extremadura
+      year: 2004
+  
+- title: Experience
+  type: time_table
+  contents:
+    - title: Data Scientist
+      institution: Kaleris/Navis. Valencia, Spain
+      year: 2023 -
+    - title: Data Scientist
+      institution: Airmee. Stockholm, Sweden
+      year: 2019 - 2023
+      description:
+
+    - title: Post-Doctoral research in Bioinformatics/Proteomics
+      institution: Royal Institute of Technology, Stockholm, Sweden
+      year: 2016-2018
+
+- title: Other Interests
+  type: list
+  contents:
+    - <u>Hobbies:</u> I'm a trumpet player, a scuba Diver and an avid reader.
