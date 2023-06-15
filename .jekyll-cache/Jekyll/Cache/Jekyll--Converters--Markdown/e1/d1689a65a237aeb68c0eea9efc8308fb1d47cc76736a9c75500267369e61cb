@@ -1,0 +1,535 @@
+I"Q<!-- _pages/publications.md -->
+<div class="publications">
+  <h2 class="year">2021</h2>
+  <ol class="bibliography"><li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="reales2021wide" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">A wide-ranging Pseudomonas aeruginosa PeptideAtlas build: A useful proteomic resource for a versatile pathogen</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        José Antonio Reales-Calderón,&nbsp;Z Sun,&nbsp;Victoria Mascaraque, and
+          <span class="more-authors" title="click to view 7 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '7 more authors' ? 'E Pérez-Navarro, Vital Vialás, Eric W Deutsch, Robert L Moritz, C Gil, JL Martı́nez, G Molero' : '7 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">7 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Journal of proteomics</em>, 2021
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li></ol>
+
+  <h2 class="year">2019</h2>
+  <ol class="bibliography"></ol>
+
+  <h2 class="year">2018</h2>
+  <ol class="bibliography"><li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="jahn2018growth" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Growth of cyanobacteria is constrained by the abundance of light and carbon assimilation proteins</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Michael Jahn,&nbsp;<em>Vital Vialas</em>,&nbsp;Jan Karlsen, and
+          <span class="more-authors" title="click to view 6 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '6 more authors' ? 'Gianluca Maddalo, Fredrik Edfors, Björn Forsström, Mathias Uhlén, Lukas Käll, Elton P Hudson' : '6 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">6 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Cell reports</em>, 2018
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li></ol>
+
+  <h2 class="year">2017</h2>
+  <ol class="bibliography"><li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="vialas2017multicentric" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">A multicentric study to evaluate the use of relative retention times in targeted proteomics</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Vital Vialas</em>,&nbsp;Núria Colomé-Calls,&nbsp;Joaquı́n Abian, and
+          <span class="more-authors" title="click to view 8 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '8 more authors' ? 'Kerman Aloria, Gloria Alvarez-Llamas, Oreto Antúnez, Jesus M Arizmendi, Mikel Azkargorta, Silvia Barceló-Batllori, Marı́a G Barderas,  others' : '8 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">8 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Journal of proteomics</em>, 2017
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li></ol>
+
+  <h2 class="year">2016</h2>
+  <ol class="bibliography"><li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="vialas2016comprehensive" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">A comprehensive Candida albicans PeptideAtlas build enables deep proteome coverage</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Vital Vialas</em>,&nbsp;Zhi Sun,&nbsp;Jose A Reales-Calderón, and
+          <span class="more-authors" title="click to view 8 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '8 more authors' ? 'Marı́a L Hernáez, Vanessa Casas, Montserrat Carrascal, Joaquı́n Abián, Lucı́a Monteoliva, Eric W Deutsch, Robert L Moritz,  others' : '8 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">8 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Journal of proteomics</em>, 2016
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
+<li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="cabezon2016apoptosis" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Apoptosis of Candida albicans during the interaction with murine macrophages: proteomics and cell-death marker monitoring</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Virginia Cabezon,&nbsp;<em>Vital Vialas</em>,&nbsp;Ana Gil-Bona, and
+          <span class="more-authors" title="click to view 7 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '7 more authors' ? 'Jose A Reales-Calderon, Montserrat Martinez-Gomariz, Dolores Gutierrez-Blazquez, Lucia Monteoliva, Gloria Molero, Mark Ramsdale, Concha Gil' : '7 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">7 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Journal of proteome research</em>, 2016
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
+<li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="vialas2016desarrollo" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Desarrollo de herramientas bioinformáticas para estudios de proteómica a gran escala de" Candida albicans"</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Vital Vialás Fernández</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em></em> 2016
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li></ol>
+
+  <h2 class="year">2015</h2>
+  <ol class="bibliography"><li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="vialas2015proteopathogen2" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Proteopathogen2, a database and web tool to store and display proteomics identification results in the mzIdentML standard</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Vital Vialas</em>,&nbsp;and&nbsp;Concha Gil</div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>EuPA open proteomics</em>, 2015
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
+<li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="tabas2015proteogenomics" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Proteogenomics dashboard for the human proteome project</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Daniel Tabas-Madrid,&nbsp;Joao Alves-Cruzeiro,&nbsp;Victor Segura, and
+          <span class="more-authors" title="click to view 7 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '7 more authors' ? 'Elizabeth Guruceaga, Vital Vialas, Gorka Prieto, Carlos Garcia, Fernando J Corrales, Juan Pablo Albar, Alberto Pascual-Montano' : '7 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">7 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Journal of Proteome Research</em>, 2015
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li></ol>
+
+  <h2 class="year">2014</h2>
+  <ol class="bibliography"><li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="vialas2014candida" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">A Candida albicans peptideatlas</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Vital Vialas</em>,&nbsp;Zhi Sun,&nbsp;Carla Verónica Loureiro Penha, and
+          <span class="more-authors" title="click to view 7 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '7 more authors' ? 'Montserrat Carrascal, Joaquı́n Abián, Lucı́a Monteoliva, Eric W Deutsch, Ruedi Aebersold, Robert L Moritz, Concha Gil' : '7 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">7 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Journal of proteomics</em>, 2014
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
+<li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="segura2014surfing" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Surfing transcriptomic landscapes. A step beyond the annotation of chromosome 16 proteome</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        Vı́ctor Segura,&nbsp;Juan Alberto Medina-Aunon,&nbsp;Maria I Mora, and
+          <span class="more-authors" title="click to view 8 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '8 more authors' ? 'Salvador Martinez-Bartolome, Joaquı́n Abian, Kerman Aloria, Oreto Antúnez, Jesus M Arizmendi, Mikel Azkargorta, Silvia Barcelo-Batllori,  others' : '8 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">8 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em>Journal of proteome research</em>, 2014
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li>
+<li><!-- _layouts/bib.html -->
+      <div class="row">
+        <div class="col-sm-2 abbr"></div>
+
+        <!-- Entry bib key -->
+        <div id="vialas2014subcelluar" class="col-sm-8">
+        <!-- Title -->
+        <div class="title">Subcelluar fractionation and several growing conditions to increase proteome coverage in Candida albicans PeptideAtlas</div>
+        <!-- Author -->
+        <div class="author">
+        
+
+        <em>Vital Vialas</em>,&nbsp;Vanessa Casas,&nbsp;Montserrat Carrascal, and
+          <span class="more-authors" title="click to view 2 more authors" onclick="
+                var element = $(this);
+                element.attr('title', '');
+                var more_authors_text = element.text() == '2 more authors' ? 'Joaquı́n Abián, C Gil' : '2 more authors';
+                var cursorPosition = 0;
+                var textAdder = setInterval(function(){
+                  element.text(more_authors_text.substring(0, cursorPosition + 1));
+                  if (++cursorPosition == more_authors_text.length){
+                    clearInterval(textAdder);
+                  }
+              }, '10');
+              ">2 more authors</span></div>
+
+        <!-- Journal/Book title and date -->
+        
+        
+        <div class="periodical">
+          <em></em> 2014
+        </div>
+        <div class="periodical">
+          
+        </div>
+
+          <!-- Links/Buttons -->
+          <div class="links">
+          </div>
+          
+          <div class="badges">
+            <span class="altmetric-embed" data-hide-no-mentions="true" data-hide-less-than="15" data-badge-type="2" data-badge-popover="right"></span>
+              <span class="__dimensions_badge_embed__" data-pmid="" data-hide-zero-citations="true" data-style="small_rectangle" data-legend="hover-right" style="margin-bottom: 3px;"></span>
+          </div>
+
+          
+        </div>
+      </div>
+</li></ol>
+
+
+</div>
+:ET

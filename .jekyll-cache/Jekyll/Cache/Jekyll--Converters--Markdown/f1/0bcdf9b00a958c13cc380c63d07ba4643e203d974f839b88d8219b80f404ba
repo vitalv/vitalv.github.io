@@ -1,0 +1,115 @@
+I"-8<p><a href="https://github.com/vitalv/valenbisi-disponibilidad"> View on GitHub</a></p>
+
+<div class="row">
+    <div class="col-sm mt-3 mt-md-0">
+        <figure>
+
+  <picture>
+    
+    <source class="responsive-img-srcset" media="(max-width: 480px)" srcset="/assets/img/valenbisi-480.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 800px)" srcset="/assets/img/valenbisi-800.webp" />
+    <source class="responsive-img-srcset" media="(max-width: 1400px)" srcset="/assets/img/valenbisi-1400.webp" />
+    
+
+    <!-- Fallback to the original file -->
+    <img src="/assets/img/valenbisi.png" class="img-fluid rounded z-depth-1" width="auto" height="auto" title="valenbisi availability map" onerror="this.onerror=null; $('.responsive-img-srcset').remove();" />
+
+  </picture>
+
+</figure>
+
+    </div>
+</div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kn">import</span> <span class="n">requests</span>
+<span class="kn">import</span> <span class="n">json</span>
+<span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="n">psycopg2</span>
+<span class="kn">import</span> <span class="n">psycopg2.extras</span> <span class="k">as</span> <span class="n">extras</span>
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sh">"</span><span class="s">https://valencia.opendatasoft.com/api/explore/v2.0/catalog/datasets/valenbisi-disponibilitat-valenbisi-dsiponibilidad/exports/json?limit=-1&amp;timezone=UTC&amp;use_labels=false&amp;epsg=4326</span><span class="sh">"</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">)</span>
+
+<span class="n">valenbisi_data</span> <span class="o">=</span> <span class="n">response</span><span class="p">.</span><span class="nf">json</span><span class="p">()</span>
+
+<span class="n">valenbisi_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">valenbisi_data</span><span class="p">)</span>
+
+<span class="n">valenbisi_df</span><span class="p">[</span><span class="sh">'</span><span class="s">num</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">valenbisi_df</span><span class="p">[</span><span class="sh">'</span><span class="s">number</span><span class="sh">'</span><span class="p">]</span>
+
+<span class="n">valenbisi_df</span><span class="p">[</span><span class="sh">'</span><span class="s">updated_at</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nf">to_datetime</span><span class="p">(</span><span class="n">valenbisi_df</span><span class="p">.</span><span class="n">updated_at</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="sh">'</span><span class="s">mixed</span><span class="sh">'</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="n">valenbisi_df</span><span class="p">[</span><span class="sh">'</span><span class="s">lat</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="sh">'</span><span class="s">lat</span><span class="sh">'</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">valenbisi_df</span><span class="p">.</span><span class="n">geo_point_2d</span><span class="p">]</span>
+<span class="n">valenbisi_df</span><span class="p">[</span><span class="sh">'</span><span class="s">lon</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="sh">'</span><span class="s">lon</span><span class="sh">'</span><span class="p">]</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">valenbisi_df</span><span class="p">.</span><span class="n">geo_point_2d</span><span class="p">]</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">DATABASE</span> <span class="n">IF</span> <span class="k">EXISTS</span> <span class="n">valenbisi_postgis</span>
+<span class="k">CREATE</span> <span class="k">SCHEMA</span> <span class="n">valenbisi</span>
+<span class="k">CREATE</span> <span class="n">extension</span> <span class="n">postgis</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">valenbisi</span><span class="p">.</span><span class="n">disponibilidad</span> <span class="p">(</span>
+  <span class="n">address</span> <span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">150</span><span class="p">),</span>
+  <span class="n">num</span> <span class="nb">INT</span><span class="p">,</span>
+  <span class="k">open</span> <span class="nb">BOOL</span><span class="p">,</span>
+  <span class="n">available</span> <span class="nb">INT</span><span class="p">,</span>
+  <span class="n">ticket</span> <span class="nb">BOOL</span><span class="p">,</span>
+  <span class="n">updated_at</span> <span class="nb">DATE</span><span class="p">,</span>
+  <span class="n">lat</span> <span class="n">FLOAT8</span><span class="p">,</span>
+  <span class="n">lon</span> <span class="n">FLOAT8</span><span class="p">,</span>
+  <span class="n">geog</span> <span class="n">GEOGRAPHY</span><span class="p">(</span><span class="n">POINT</span><span class="p">,</span> <span class="mi">4326</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">execute_values</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
+  
+    <span class="n">tuples</span> <span class="o">=</span> <span class="p">[</span><span class="nf">tuple</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="p">.</span><span class="nf">to_numpy</span><span class="p">()]</span>
+  
+    <span class="n">cols</span> <span class="o">=</span> <span class="sh">'</span><span class="s">,</span><span class="sh">'</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="nf">list</span><span class="p">(</span><span class="n">df</span><span class="p">.</span><span class="n">columns</span><span class="p">))</span>
+  
+    <span class="c1"># SQL query to execute
+</span>    <span class="n">query</span> <span class="o">=</span> <span class="sh">"</span><span class="s">INSERT INTO %s(%s) VALUES %%s</span><span class="sh">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="n">cols</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="nf">cursor</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">extras</span><span class="p">.</span><span class="nf">execute_values</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">tuples</span><span class="p">)</span>
+        <span class="n">conn</span><span class="p">.</span><span class="nf">commit</span><span class="p">()</span>
+    <span class="nf">except </span><span class="p">(</span><span class="nb">Exception</span><span class="p">,</span> <span class="n">psycopg2</span><span class="p">.</span><span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+        <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Error: %s</span><span class="sh">"</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span>
+        <span class="n">conn</span><span class="p">.</span><span class="nf">rollback</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">execute_values() done</span><span class="sh">"</span><span class="p">)</span>
+    <span class="n">cursor</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span>
+  
+  
+<span class="c1"># establishing connection
+</span><span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span>
+    <span class="n">database</span><span class="o">=</span><span class="sh">"</span><span class="s">valenbisi_postgis</span><span class="sh">"</span><span class="p">,</span>
+    <span class="n">user</span><span class="o">=</span><span class="sh">'</span><span class="s">postgres</span><span class="sh">'</span><span class="p">,</span>
+    <span class="n">password</span><span class="o">=</span><span class="sh">'</span><span class="s">chunkybacon</span><span class="sh">'</span><span class="p">,</span>
+    <span class="n">host</span><span class="o">=</span><span class="sh">'</span><span class="s">127.0.0.1</span><span class="sh">'</span><span class="p">,</span>
+    <span class="n">port</span><span class="o">=</span><span class="sh">'</span><span class="s">5432</span><span class="sh">'</span>
+<span class="p">)</span>
+
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="p">.</span><span class="nf">cursor</span><span class="p">()</span>
+
+<span class="n">zip_lon_lat</span> <span class="o">=</span> <span class="nf">list</span><span class="p">(</span><span class="nf">zip</span><span class="p">(</span><span class="n">valenbisi_df</span><span class="p">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">valenbisi_df</span><span class="p">.</span><span class="n">lat</span><span class="p">))</span>
+
+<span class="n">valenbisi_df</span><span class="p">[</span><span class="sh">'</span><span class="s">geog</span><span class="sh">'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="sh">'</span><span class="s">POINT(</span><span class="si">{</span><span class="n">lon_lat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s"> </span><span class="si">{</span><span class="n">lon_lat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s">)</span><span class="sh">'</span> <span class="k">for</span> <span class="n">lon_lat</span> <span class="ow">in</span> <span class="n">zip_lon_lat</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">valenbisi_df</span><span class="p">[[</span><span class="sh">"</span><span class="s">address</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">num</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">open</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">available</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">ticket</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">updated_at</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">lat</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">lon</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">geog</span><span class="sh">"</span><span class="p">]]</span>
+
+<span class="nf">execute_values</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="sh">'</span><span class="s">valenbisi.disponibilidad</span><span class="sh">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">valenbisi</span><span class="p">.</span><span class="n">disponibilidad</span> <span class="k">RENAME</span> <span class="k">COLUMN</span> <span class="n">geog</span> <span class="k">TO</span> <span class="n">geom</span><span class="p">;</span>
+
+<span class="k">ALTER</span> <span class="k">TABLE</span> 
+  <span class="n">valenbisi</span><span class="p">.</span><span class="n">disponibilidad</span> <span class="k">ALTER</span> <span class="k">COLUMN</span> <span class="n">geom</span> <span class="k">TYPE</span> <span class="n">geometry</span><span class="p">(</span><span class="n">POINT</span><span class="p">,</span> <span class="mi">3395</span><span class="p">)</span>
+  <span class="k">USING</span> <span class="n">ST_Transform</span><span class="p">(</span><span class="n">geom</span><span class="p">::</span><span class="n">geometry</span><span class="p">,</span> <span class="mi">3395</span><span class="p">);</span>
+</code></pre></div></div>
+
+:ET

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <!-- Head -->
+  <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    <!-- Metadata, OpenGraph and Schema.org -->
+    
+
+    <!-- Standard metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>NLP for document clustering and topic extraction | Vital Vialas portfolio</title>
+    <meta name="author" content="Vital Vialas Fernandez">
+    <meta name="description" content="Natural Language Processing (Latent Semantic Analysis) for topic extraction and modelling">
+    <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website">
+
+
+    <!-- Bootstrap & MDB -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous">
+
+    <!-- Bootstrap Table -->
+    <link defer rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.css">
+
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+
+    <!-- Code Syntax Highlighting -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="" id="highlight_theme_light">
+
+    
+
+    <!-- Styles -->
+    
+    <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%E2%9A%9B%EF%B8%8F&lt;/text&gt;&lt;/svg&gt;">
+    
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/projects/4_project/">
+
+    <!-- Dark Mode -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/native.css" media="none" id="highlight_theme_dark">
+
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/dark_mode.js"></script>
+    
+
+  </head>
+
+  <!-- Body -->
+  <body class="fixed-top-nav ">
+
+    <!-- Header -->
+    <header>
+
+      <!-- Nav Bar -->
+      <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+        <div class="container">
+          <a class="navbar-brand title font-weight-lighter" href="/">Vital Vialas portfolio</a>
+          <!-- Navbar Toggle -->
+          <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar top-bar"></span>
+            <span class="icon-bar middle-bar"></span>
+            <span class="icon-bar bottom-bar"></span>
+          </button>
+
+          <div class="collapse navbar-collapse text-right" id="navbarNav">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+
+              <!-- About -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/">about</a>
+              </li>
+              
+              <!-- Blog -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/blog/">timeline</a>
+              </li>
+
+              <!-- Other pages -->
+              <li class="nav-item ">
+                <a class="nav-link" href="/publications/">publications</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/projects/">projects</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/repositories/">repositories</a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/cv/">cv</a>
+              </li>
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">submenus</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/publications/">publications</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/projects/">projects</a>
+                </div>
+              </li>
+
+              <!-- Toogle theme mode -->
+              <li class="toggle-container">
+                <button id="light-toggle" title="Change theme">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Scrolling Progress Bar -->
+      <progress id="progress" value="0">
+        <div class="progress-container">
+          <span class="progress-bar"></span>
+        </div>
+      </progress>
+    </header>
+
+
+    <!-- Content -->
+    <div class="container mt-5">
+      
+        <!-- page.html -->
+        <div class="post">
+
+          <header class="post-header">
+            <h1 class="post-title">NLP for document clustering and topic extraction</h1>
+            <p class="post-description">Natural Language Processing (Latent Semantic Analysis) for topic extraction and modelling</p>
+          </header>
+
+          <article>
+            <p>https://github.com/vitalv/doc-clustering-topic-modeling</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#Make a pretty pyramid with the imported modules :-)
+</span><span class="kn">import</span> <span class="n">csv</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span> 
+<span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="kn">import</span> <span class="n">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="kn">import</span> <span class="n">seaborn</span> <span class="k">as</span> <span class="n">sb</span>
+<span class="kn">from</span> <span class="n">irlb</span> <span class="kn">import</span> <span class="n">irlb</span>
+<span class="kn">from</span> <span class="n">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="n">scipy</span> <span class="kn">import</span> <span class="n">sparse</span>
+<span class="kn">import</span> <span class="n">matplotlib.pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="n">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>
+<span class="kn">from</span> <span class="n">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<span class="kn">import</span> <span class="n">scipy.cluster.hierarchy</span> <span class="k">as</span> <span class="n">sch</span>
+<span class="kn">import</span> <span class="n">matplotlib.patches</span> <span class="k">as</span> <span class="n">mpatches</span>
+<span class="kn">import</span> <span class="n">scipy.spatial.distance</span> <span class="k">as</span> <span class="n">scdist</span>
+<span class="kn">from</span> <span class="n">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span>
+<span class="kn">from</span> <span class="n">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="n">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Normalizer</span>
+<span class="c1">#from sklearn.naive_bayes import MultinomialNB
+</span><span class="kn">from</span> <span class="n">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">TruncatedSVD</span>
+<span class="n">sb</span><span class="p">.</span><span class="nf">set_style</span><span class="p">(</span><span class="sh">"</span><span class="s">whitegrid</span><span class="sh">"</span><span class="p">,</span> <span class="p">{</span><span class="sh">'</span><span class="s">axes.grid</span><span class="sh">'</span> <span class="p">:</span> <span class="bp">False</span><span class="p">})</span>
+<span class="kn">import</span> <span class="n">statsmodels.sandbox.stats.multicomp</span> <span class="k">as</span> <span class="n">mc</span>
+<span class="kn">from</span> <span class="n">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+<span class="kn">from</span> <span class="n">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfTransformer</span>
+<span class="kn">from</span> <span class="n">sklearn.metrics</span> <span class="kn">import</span> <span class="n">silhouette_score</span><span class="p">,</span> <span class="n">silhouette_samples</span>
+</code></pre></div></div>
+
+<h1 id="read-and-format-data">Read and format data</h1>
+
+<h2 id="read-vocabulary-file">Read vocabulary file</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">read_vocab</span><span class="p">(</span><span class="n">vocab_file_name</span><span class="p">):</span>
+    <span class="sh">'''</span><span class="s">Reads vocabulary file into a list</span><span class="sh">'''</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">w</span><span class="p">.</span><span class="nf">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nf">open</span><span class="p">(</span><span class="n">vocab_file_name</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<h2 id="read-docwordtxt-into-a-document-x-word-matrix">Read docword.txt into a document x word matrix</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">read_docword</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="sh">'''</span><span class="s">
+    Reads docword txt file into a Document-Term Matrix (DTM)
+    The full DTM will be too large to hold in memory if represented    as a dense matrix. Use Scipy sparse instead
+    Matrix multiplication involving the sparse representation is rapid thanks to algorithms that avoid explicitly
+    performing multiplications by 0 (nNMF or SVD for instance involve matrix multiplication)
+    </span><span class="sh">'''</span>
+
+    <span class="n">file_handle</span> <span class="o">=</span> <span class="nf">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+    <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="p">.</span><span class="nf">reader</span><span class="p">(</span><span class="n">file_handle</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="sh">'</span><span class="s"> </span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="nf">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1">#create numpy DTM (Document-Term Matrix)
+</span>    <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="n">D</span><span class="p">,</span><span class="n">W</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="sh">'</span><span class="s">int8</span><span class="sh">'</span><span class="p">)</span>
+    <span class="c1">#instead of creating a sparse matrix and then fill it up, create a numpy matrix
+</span>    <span class="c1">#and then later convert it to csr -&gt; SparseEfficiencyWarning
+</span>    <span class="c1">#m = sparse.csr_matrix( (D,W), dtype='int8')
+</span>    <span class="sh">'''</span><span class="s">
+    Note: this is not an efficient way to fill in the matrix. 
+    TO DO: Create first the array for each document and then fill the whole array at once
+    </span><span class="sh">'''</span>    
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+        <span class="n">D_i</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">W_i</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nf">int</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+        <span class="n">m</span><span class="p">[</span><span class="n">D_i</span><span class="p">,</span> <span class="n">W_i</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+
+    <span class="n">m</span> <span class="o">=</span> <span class="n">sparse</span><span class="p">.</span><span class="nf">csr_matrix</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">D</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">m</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">docword_file</span> <span class="o">=</span> <span class="sh">'</span><span class="s">data/docword.kos.txt</span><span class="sh">'</span>
+<span class="n">D</span><span class="p">,</span><span class="n">W</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">DTM</span> <span class="o">=</span> <span class="nf">read_docword</span><span class="p">(</span><span class="n">docword_file</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">vocab_file</span> <span class="o">=</span> <span class="sh">'</span><span class="s">data/vocab.kos.txt</span><span class="sh">'</span>
+<span class="n">vocab</span> <span class="o">=</span> <span class="nf">read_vocab</span><span class="p">(</span><span class="n">vocab_file</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="tf-idf-term-frequency-inverse-document-frequency">TF-IDF: term frequency inverse document frequency</h2>
+
+<p>TFIDF is a more reliable metric than plain frequency because it normalizes frequency across documents.  Very common (and semantically meaningless) words like articles (‘the’, ‘a’, ‘an’ …), prepositions, etc… are in this way given less weight and filtered out</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tfidf_transformer</span> <span class="o">=</span> <span class="nc">TfidfTransformer</span><span class="p">()</span>
+<span class="n">DTM_tfidf</span> <span class="o">=</span> <span class="n">tfidf_transformer</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">DTM</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="document-clustering-and-topic-modeling">Document Clustering and Topic Modeling</h1>
+
+<p>Now comes the interesting part</p>
+
+<p>This is an unsupervised document clustering / topic extraction.
+We have no previous knowledge on the number of topics there are in every corpus of documents.</p>
+
+<p>A conventional approach involves an -optional- initial step of LSA (Latent Semantic Analysis) (TruncatedSVD) for dimensionalty reduction followed by K-Means.  The downside to this approach in this scenario is that it requires a predefined number of clusters, which is not available</p>
+
+<p>There might not be an optimal number of clusters with complete separation, but there are ways to assess/approximate it.
+The ‘elbow’ method consists of plotting a range of number of clusters on the x axis and the average within-cluster sum of squares in the y axis (as a measure of within cluster similarity between its elements). Then an inflexion point would be
+indicative of a good k</p>
+
+<p>Another option to estimate an initial number of clusters consists of running a hierachical clustering and plot a dendrogram. Depending on the method and metric different results can be achieved.</p>
+
+<p>If a good candidate for k is found K-Means can be re-run using it as input. In addition, several K-Means runs are advised since the algorithm might end up in a local optima.</p>
+
+<p>Another approach would be to use a different clustering algorithm not requiring a predefined number of clusters:
+Means-shift, for instance . But this has not provided good results in this scenario (1 or 2 big groups)</p>
+
+<h2 id="svdlsa">SVD/LSA</h2>
+
+<p>TruncatedSVD implements a variant of singular value decomposition (SVD) that only computes the k largest singular values, 
+where k is a user-specified parameter.</p>
+
+<p>When truncated SVD is applied to term-document matrices (as returned by CountVectorizer or TfidfVectorizer), this transformation is known as latent semantic analysis (LSA), because it transforms such matrices to a “semantic” space of low dimensionality.</p>
+
+<p>In particular, LSA is known to combat the effects of synonymy and polysemy (both of which roughly mean there are multiple meanings per word), which cause term-document matrices to be overly sparse and exhibit poor similarity under measures such as cosine similarity.</p>
+
+<p>TruncatedSVD transformer accepts scipy.sparse matrices without the need to densify them, as densifying may fill up memory even for medium-sized document collections.</p>
+
+<p>The appropriate value of s is a matter of debate, and is application-dependent. Smaller values of s represent a greater extent of dimensionality reduction at the cost of a loss of structure of the original DTM. Values anywhere from 30 to 300 are commonly used. <br>
+In practice, using a cumulative scree plot to select s so that roughly 75–80% of the original variance is recovered tends to strike a good balance</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#kos W/5 -&gt; 83%
+</span><span class="n">n_components</span> <span class="o">=</span> <span class="n">W</span><span class="o">/</span><span class="mi">5</span>
+
+<span class="n">svd</span> <span class="o">=</span> <span class="nc">TruncatedSVD</span><span class="p">(</span><span class="n">n_components</span><span class="p">)</span>
+<span class="c1"># DTM_tfidf results are normalized. Since LSA/SVD results are
+# not normalized, we have to redo the normalization:
+</span><span class="n">normalizer</span> <span class="o">=</span> <span class="nc">Normalizer</span><span class="p">(</span><span class="n">copy</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">lsa</span> <span class="o">=</span> <span class="nf">make_pipeline</span><span class="p">(</span><span class="n">svd</span><span class="p">,</span> <span class="n">normalizer</span><span class="p">)</span>
+
+<span class="o">%</span><span class="n">time</span> \
+<span class="n">DTM_tfidf_lsa</span> <span class="o">=</span> <span class="n">lsa</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">DTM_tfidf</span><span class="p">)</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Explained variance of the SVD step: {}%</span><span class="sh">"</span><span class="p">.</span><span class="nf">format</span><span class="p">(</span><span class="nf">int</span><span class="p">(</span><span class="n">svd</span><span class="p">.</span><span class="n">explained_variance_ratio_</span><span class="p">.</span><span class="nf">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)))</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU times: user 32.2 s, sys: 13.9 s, total: 46.1 s
+Wall time: 10.4 s
+Explained variance of the SVD step: 83%
+</code></pre></div></div>
+
+<p>For the kos dataset, LSA (n_components = W/5 explaining 83% of the original variance)<br>
+reduces the size of the DTM from shape (3430, 6906) to (3430, 1381)</p>
+
+<h2 id="k-means">K-Means</h2>
+
+<p>K-Means separates samples in n groups of equal variance<br>
+first step chooses the initial centroids (k, the number of clusters)<br>
+After initialization, K-means consists of looping between the two other steps:<br>
+The first step assigns each sample to its nearest centroid.<br>
+The second step creates new centroids by taking the mean value of all of the samples assigned to each previous centroid
+The inertia or within-cluster sum-of-squares is minimized</p>
+
+<h3 id="try-to-find--optimal-number-of-clusters-for-k-means-elbow-method">Try to find  optimal number of clusters for k-means. “Elbow” method</h3>
+
+<p>Run this ‘elbow’ plot on the LSA reduced DTM_tfidf for the smaller datasets: kos and nips<br>
+Run it on the super-reduced irlb DTM_tfidf for the larger datasets enron nytimes and pubmed</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k_range</span> <span class="o">=</span> <span class="nf">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">kms</span> <span class="o">=</span> <span class="p">[</span><span class="nc">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="sh">'</span><span class="s">k-means++</span><span class="sh">'</span><span class="p">).</span><span class="nf">fit</span><span class="p">(</span><span class="n">DTM_tfidf_lsa</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_range</span><span class="p">]</span>
+<span class="n">centroids</span> <span class="o">=</span> <span class="p">[</span><span class="n">X</span><span class="p">.</span><span class="n">cluster_centers_</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="n">kms</span><span class="p">]</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="n">km</span><span class="p">.</span><span class="n">labels_</span> <span class="k">for</span> <span class="n">km</span> <span class="ow">in</span> <span class="n">kms</span><span class="p">]</span>
+<span class="c1">#calculate Euclidean distance from each point to cluster center
+</span><span class="n">k_euclid</span> <span class="o">=</span> <span class="p">[</span><span class="n">scdist</span><span class="p">.</span><span class="nf">cdist</span><span class="p">(</span><span class="n">DTM_tfidf_lsa</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="sh">'</span><span class="s">euclidean</span><span class="sh">'</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">centroids</span><span class="p">]</span> 
+<span class="n">dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="p">.</span><span class="nf">min</span><span class="p">(</span><span class="n">ke</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">ke</span> <span class="ow">in</span> <span class="n">k_euclid</span><span class="p">]</span>
+<span class="c1">#Total within cluster sum of squares
+</span><span class="n">wcss</span> <span class="o">=</span> <span class="p">[</span><span class="nf">sum</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dist</span><span class="p">]</span>
+<span class="c1">#average wcss
+</span><span class="n">avwcss</span> <span class="o">=</span> <span class="p">[(</span><span class="nf">sum</span><span class="p">(</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="nf">len</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dist</span><span class="p">]</span>
+<span class="c1">#total sum of squares
+</span><span class="n">tss</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">scdist</span><span class="p">.</span><span class="nf">pdist</span><span class="p">(</span><span class="n">DTM_tfidf_lsa</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="n">DTM_tfidf_lsa</span><span class="p">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">#between cluster sum of squares:
+</span><span class="n">bss</span> <span class="o">=</span> <span class="n">tss</span> <span class="o">-</span> <span class="n">wcss</span>
+<span class="c1">#plot average wcss vs number of clusters "Elbow plot": look for a point where the rate of decrease in wcss sharply shifts
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span> <span class="c1"># set size
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">plot</span><span class="p">(</span><span class="n">k_range</span><span class="p">,</span> <span class="n">avwcss</span><span class="p">,</span> <span class="sh">'</span><span class="s">-o</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">ylabel</span><span class="p">(</span><span class="sh">"</span><span class="s">average wcss</span><span class="sh">"</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">xlabel</span><span class="p">(</span><span class="sh">"</span><span class="s">k</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/output_21_1.png" alt="png"></p>
+
+<h3 id="not-very-clear-elbow-check-out-the-silhouette-scores">Not very clear elbow? Check out the Silhouette scores</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">silhouette_avg_scores</span> <span class="o">=</span> <span class="p">[</span><span class="nf">silhouette_score</span><span class="p">(</span><span class="n">docword_tfidf</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">silhouette_avg_scores</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[0.019074356579233953, 0.023240564880013723, 0.024028296812336956, 0.025919575579062177, 0.026861760217288647, 0.013321506889758637, 0.013536290635032448, 0.01451164797130685, 0.014830797754892374, 0.013388411008660303, 0.012483410542328629, 0.015275226554560749, 0.027228038459763966, 0.012797013871169995, 0.013817068993089826, 0.014762985936250679, 0.01653236589461024, 0.014915275197301334]
+</code></pre></div></div>
+
+<h2 id="initialize-kmeans-object">Initialize KMeans object</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">k</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="c1">#these are all default options (except for k)
+</span><span class="n">km</span> <span class="o">=</span> <span class="nc">KMeans</span><span class="p">(</span><span class="n">algorithm</span><span class="o">=</span><span class="sh">'</span><span class="s">auto</span><span class="sh">'</span><span class="p">,</span>
+            <span class="n">copy_x</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+            <span class="n">init</span><span class="o">=</span><span class="sh">'</span><span class="s">k-means++</span><span class="sh">'</span><span class="p">,</span>
+            <span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+            <span class="n">n_clusters</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+            <span class="n">n_init</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">precompute_distances</span><span class="o">=</span><span class="sh">'</span><span class="s">auto</span><span class="sh">'</span><span class="p">,</span>
+            <span class="n">random_state</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+            <span class="n">tol</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span>
+            <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="compute-kmeans-on-the-tfidf-matrix">Compute KMeans on the TFIDF matrix</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">time</span> <span class="n">km</span><span class="p">.</span><span class="nf">fit</span><span class="p">(</span><span class="n">DTM_tfidf_lsa</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CPU times: user 5.71 s, sys: 3.33 s, total: 9.04 s
+Wall time: 4.37 s
+
+
+
+
+
+KMeans(algorithm='auto', copy_x=True, init='k-means++', max_iter=300,
+    n_clusters=8, n_init=10, n_jobs=1, precompute_distances='auto',
+    random_state=None, tol=0.0001, verbose=0)
+</code></pre></div></div>
+
+<h4 id="sort-cluster-centers-by-proximity-to-centroid">Sort cluster centers by proximity to centroid</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">clusters</span> <span class="o">=</span> <span class="n">km</span><span class="p">.</span><span class="n">labels_</span>
+<span class="n">k_centers</span> <span class="o">=</span> <span class="n">km</span><span class="p">.</span><span class="n">cluster_centers_</span> <span class="c1">#Coordinates of cluster centers  [n_clusters, n_features]
+</span><span class="n">original_space_centroids</span> <span class="o">=</span> <span class="n">svd</span><span class="p">.</span><span class="nf">inverse_transform</span><span class="p">(</span><span class="n">k_centers</span><span class="p">)</span>
+<span class="n">order_centroids</span> <span class="o">=</span> <span class="n">original_space_centroids</span><span class="p">.</span><span class="nf">argsort</span><span class="p">()[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1">#argsort returns the indices that would sort an array
+</span></code></pre></div></div>
+
+<h4 id="print-cluster-index-and-n-words-closest-to-centroid-associated">Print Cluster index and n words (closest to centroid) associated</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">lsa_cluster_topics</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">topic</span> <span class="o">=</span> <span class="sh">'</span><span class="s">,</span><span class="sh">'</span><span class="p">.</span><span class="nf">join</span><span class="p">([</span><span class="n">vocab</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="n">ix</span> <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">order_centroids</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="p">:</span><span class="mi">5</span><span class="p">]]])</span>
+    <span class="n">lsa_cluster_topics</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">topic</span>
+    <span class="k">print</span> <span class="sh">"</span><span class="s">Cluster %i: </span><span class="sh">"</span> <span class="o">%</span> <span class="n">c</span> <span class="o">+</span> <span class="n">topic</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cluster 0: iraq,war,bush,iraqi,military
+Cluster 1: dean,clark,edwards,kerry,lieberman
+Cluster 2: party,nader,democratic,ballot,state
+Cluster 3: bush,administration,president,kerry,general
+Cluster 4: november,account,electoral,turnout,governor
+Cluster 5: kerry,bush,poll,percent,voters
+Cluster 6: november,voting,account,electoral,governor
+Cluster 7: house,senate,race,elections,district
+</code></pre></div></div>
+
+<p>This takes forever without dim red. Use DTM_tfidf_lsa instead of DTM_tfidf
+Note also that DTM_tfdif_lsa, unlike DTM_tfidf, is not sparse anymore. No need to convert to dense format!</p>
+
+<p>Silhouette Coefficients range between [-1,1]. Values near +1 indicate that the sample is far away from the neighboring clusters. A value of 0 indicates that the sample is on or very close to the decision boundary between two neighboring clusters and negative values indicate that those samples might have been assigned to the wrong cluster.<br>
+These values are not good, but this measure seems to suffer from the phenomenon called “Concentration of Measure” or “Curse of Dimensionality” <br>
+Check http://scikit-learn.org/stable/auto_examples/text/document_clustering.html</p>
+
+<h2 id="term-enrichment-analysis">Term enrichment analysis</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">enrich</span><span class="p">(</span><span class="n">document_term_matrix</span><span class="p">,</span> <span class="n">doc_idxs</span><span class="p">,</span> <span class="n">n_terms_in_corpus</span><span class="p">):</span>
+    <span class="sh">'''</span><span class="s">
+    uses scipy.stats hypergeometric test to extract probabilities (p-values) of term enrichment in a group of documents
+    groups can be defined for instance from the K-Means analysis
+    uses absolute count frequencies not tfidf (tfidf are already document-normalized)
+    </span><span class="sh">'''</span>
+    <span class="n">DTM</span> <span class="o">=</span> <span class="n">document_term_matrix</span>
+    <span class="n">enrichment</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="nc">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sh">"</span><span class="s">word</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">word_count_in_cluster</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">n_words_in_cluster</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">word_count_in_corpus</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">n_words_in_corpus</span><span class="sh">"</span><span class="p">,</span> <span class="sh">"</span><span class="s">p-val</span><span class="sh">"</span> <span class="p">])</span>
+    <span class="n">word_idx</span> <span class="o">=</span> <span class="n">DTM</span><span class="p">[</span><span class="n">doc_idxs</span><span class="p">].</span><span class="nf">nonzero</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">word_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">unique</span><span class="p">(</span><span class="n">word_idx</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="nf">len</span><span class="p">(</span><span class="n">word_idx</span><span class="p">)):</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">word_idx</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">n_terms_in_cluster</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="n">DTM</span><span class="p">[</span><span class="n">doc_idxs</span><span class="p">].</span><span class="nf">nonzero</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">term_count_in_cluster</span> <span class="o">=</span> <span class="n">DTM</span><span class="p">[</span><span class="n">doc_idxs</span><span class="p">,</span><span class="n">t</span><span class="p">].</span><span class="nf">sum</span><span class="p">()</span>
+        <span class="n">term_count_in_corpus</span> <span class="o">=</span> <span class="n">DTM</span><span class="p">[:,</span><span class="n">t</span><span class="p">].</span><span class="nf">sum</span><span class="p">()</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="p">.</span><span class="n">hypergeom</span><span class="p">.</span><span class="nf">sf</span><span class="p">(</span><span class="n">term_count_in_cluster</span><span class="p">,</span> <span class="n">n_terms_in_corpus</span><span class="p">,</span> <span class="n">n_terms_in_cluster</span><span class="p">,</span> <span class="n">term_count_in_corpus</span><span class="p">)</span>
+        <span class="n">enrichment</span><span class="p">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">vocab</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">term_count_in_cluster</span><span class="p">,</span> <span class="n">n_terms_in_cluster</span><span class="p">,</span> <span class="n">term_count_in_corpus</span><span class="p">,</span> <span class="n">n_terms_in_corpus</span><span class="p">,</span> <span class="n">p</span><span class="p">]</span>
+        <span class="c1">#Multiple hypothesis correction, transform p-values to adjusted p-values:
+</span>    <span class="n">reject</span><span class="p">,</span> <span class="n">adj_pvalues</span><span class="p">,</span> <span class="n">corrected_a_sidak</span><span class="p">,</span> <span class="n">corrected_a_bonf</span> <span class="o">=</span>  <span class="n">mc</span><span class="p">.</span><span class="nf">multipletests</span><span class="p">(</span><span class="n">enrichment</span><span class="p">[</span><span class="sh">"</span><span class="s">p-val</span><span class="sh">"</span><span class="p">],</span> <span class="n">method</span><span class="o">=</span><span class="sh">'</span><span class="s">fdr_bh</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">enrichment</span><span class="p">[</span><span class="sh">"</span><span class="s">adj_pval(BH)</span><span class="sh">"</span><span class="p">]</span> <span class="o">=</span> <span class="n">adj_pvalues</span>
+    <span class="n">enrichment</span> <span class="o">=</span> <span class="n">enrichment</span><span class="p">.</span><span class="nf">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="sh">'</span><span class="s">adj_pval(BH)</span><span class="sh">'</span><span class="p">).</span><span class="nf">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">enrichment</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cl0_doc_idxs</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="c1">#Remember N is the total nonzero count values in corpus
+#It can be estimated as well as: len(DTM.nonzero()[1])
+</span><span class="n">cluster0_enrichment</span> <span class="o">=</span> <span class="nf">enrich</span><span class="p">(</span><span class="n">DTM</span><span class="p">,</span> <span class="n">cl0_doc_idxs</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="nc">HTML</span><span class="p">(</span><span class="n">cluster0_enrichment</span><span class="p">.</span><span class="nf">to_html</span><span class="p">())</span>
+</code></pre></div></div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>word_count_in_cluster</th>
+      <th>n_words_in_cluster</th>
+      <th>word_count_in_corpus</th>
+      <th>n_words_in_corpus</th>
+      <th>p-val</th>
+      <th>adj_pval(BH)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3955</th>
+      <td>petraeus</td>
+      <td>23</td>
+      <td>59975</td>
+      <td>23</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2873</th>
+      <td>iraq</td>
+      <td>1574</td>
+      <td>59975</td>
+      <td>2217</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3032</th>
+      <td>kufa</td>
+      <td>12</td>
+      <td>59975</td>
+      <td>12</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3033</th>
+      <td>kurdish</td>
+      <td>20</td>
+      <td>59975</td>
+      <td>20</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4953</th>
+      <td>shrine</td>
+      <td>14</td>
+      <td>59975</td>
+      <td>14</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1375</th>
+      <td>dearborn</td>
+      <td>11</td>
+      <td>59975</td>
+      <td>11</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3173</th>
+      <td>lindauer</td>
+      <td>15</td>
+      <td>59975</td>
+      <td>15</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>alhusainy</td>
+      <td>12</td>
+      <td>59975</td>
+      <td>12</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3279</th>
+      <td>maj</td>
+      <td>12</td>
+      <td>59975</td>
+      <td>12</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2334</th>
+      <td>gharib</td>
+      <td>10</td>
+      <td>59975</td>
+      <td>10</td>
+      <td>353160</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cl1_doc_idxs</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nf">enumerate</span><span class="p">(</span><span class="n">clusters</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">cluster1_enrichment</span> <span class="o">=</span> <span class="nf">enrich</span><span class="p">(</span><span class="n">DTM</span><span class="p">,</span> <span class="n">cl1_doc_idxs</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="nc">HTML</span><span class="p">(</span><span class="n">cluster1_enrichment</span><span class="p">.</span><span class="nf">to_html</span><span class="p">())</span>
+</code></pre></div></div>
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>word_count_in_cluster</th>
+      <th>n_words_in_cluster</th>
+      <th>word_count_in_corpus</th>
+      <th>n_words_in_corpus</th>
+      <th>p-val</th>
+      <th>adj_pval(BH)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2119</th>
+      <td>lieb</td>
+      <td>14</td>
+      <td>23087</td>
+      <td>14</td>
+      <td>353160</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>645</th>
+      <td>clark</td>
+      <td>625</td>
+      <td>23087</td>
+      <td>820</td>
+      <td>353160</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>942</th>
+      <td>dean</td>
+      <td>1278</td>
+      <td>23087</td>
+      <td>1798</td>
+      <td>353160</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>1193</th>
+      <td>edwards</td>
+      <td>681</td>
+      <td>23087</td>
+      <td>1127</td>
+      <td>353160</td>
+      <td>0.000000e+00</td>
+      <td>0.000000e+00</td>
+    </tr>
+    <tr>
+      <th>2120</th>
+      <td>lieberman</td>
+      <td>354</td>
+      <td>23087</td>
+      <td>459</td>
+      <td>353160</td>
+      <td>4.702023e-320</td>
+      <td>3.903619e-317</td>
+    </tr>
+    <tr>
+      <th>1589</th>
+      <td>gephardt</td>
+      <td>367</td>
+      <td>23087</td>
+      <td>530</td>
+      <td>353160</td>
+      <td>2.941865e-302</td>
+      <td>2.035280e-299</td>
+    </tr>
+    <tr>
+      <th>1935</th>
+      <td>iowa</td>
+      <td>351</td>
+      <td>23087</td>
+      <td>597</td>
+      <td>353160</td>
+      <td>8.080964e-252</td>
+      <td>4.792012e-249</td>
+    </tr>
+    <tr>
+      <th>2821</th>
+      <td>primary</td>
+      <td>520</td>
+      <td>23087</td>
+      <td>1528</td>
+      <td>353160</td>
+      <td>4.658350e-225</td>
+      <td>2.417102e-222</td>
+    </tr>
+    <tr>
+      <th>2015</th>
+      <td>kerry</td>
+      <td>886</td>
+      <td>23087</td>
+      <td>4679</td>
+      <td>353160</td>
+      <td>3.503594e-181</td>
+      <td>1.615935e-178</td>
+    </tr>
+    <tr>
+      <th>2038</th>
+      <td>kucinich</td>
+      <td>165</td>
+      <td>23087</td>
+      <td>214</td>
+      <td>353160</td>
+      <td>1.021201e-150</td>
+      <td>4.239004e-148</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="hierarchical-clustering">Hierarchical clustering</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#sklearn.metrics.pairwise cosine_similarity
+</span><span class="n">dist</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nf">cosine_similarity</span><span class="p">(</span><span class="n">DTM_tfidf_lsa</span><span class="p">)</span>
+
+<span class="c1">#Then get linkage matrix
+</span><span class="n">linkage_matrix_ward</span> <span class="o">=</span> <span class="n">sch</span><span class="p">.</span><span class="nf">ward</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span> 
+
+<span class="c1">#And then plot the dendrogram
+</span><span class="n">dendro_color_threshold</span> <span class="o">=</span> <span class="mf">0.12</span> <span class="c1">#default: 0.7
+</span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">))</span> <span class="c1"># set size
+</span><span class="n">ax</span> <span class="o">=</span> <span class="n">sch</span><span class="p">.</span><span class="nf">dendrogram</span><span class="p">(</span><span class="n">linkage_matrix_ward</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="sh">"</span><span class="s">left</span><span class="sh">"</span><span class="p">,</span><span class="n">color_threshold</span><span class="o">=</span><span class="n">dendro_color_threshold</span><span class="o">*</span><span class="nf">max</span><span class="p">(</span><span class="n">linkage_matrix_ward</span><span class="p">[:,</span><span class="mi">2</span><span class="p">]));</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">tick_params</span><span class="p">(</span>\
+    <span class="n">axis</span><span class="o">=</span> <span class="sh">'</span><span class="s">x</span><span class="sh">'</span><span class="p">,</span>          <span class="c1"># changes apply to the x-axis
+</span>    <span class="n">which</span><span class="o">=</span><span class="sh">'</span><span class="s">both</span><span class="sh">'</span><span class="p">,</span>      <span class="c1"># both major and minor ticks are affected
+</span>    <span class="n">bottom</span><span class="o">=</span><span class="sh">'</span><span class="s">off</span><span class="sh">'</span><span class="p">,</span>      <span class="c1"># ticks along the bottom edge are off
+</span>    <span class="n">top</span><span class="o">=</span><span class="sh">'</span><span class="s">off</span><span class="sh">'</span><span class="p">,</span>         <span class="c1"># ticks along the top edge are off
+</span>    <span class="n">labelbottom</span><span class="o">=</span><span class="sh">'</span><span class="s">off</span><span class="sh">'</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">docword_file</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span> <span class="o">+</span> <span class="sh">"</span><span class="s">Dendrogram color threshold: %s</span><span class="sh">"</span><span class="o">%</span><span class="n">dendro_color_threshold</span><span class="p">)</span>
+<span class="n">plt</span><span class="p">.</span><span class="nf">tight_layout</span><span class="p">()</span> <span class="c1">#show plot with tight layout
+</span><span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/output_39_0.png" alt="png"></p>
+
+<h2 id="dimensionality-reduction-and-plot">Dimensionality Reduction and Plot</h2>
+
+<h3 id="tsne">TSNE</h3>
+<p>t-SNE is a machine learning technique for dimensionality reduction that helps you to identify relevant patterns.  The main advantage of t-SNE is the ability to preserve local structure. This means, roughly, that points which are close to one another in the high-dimensional data set will tend to be close to one another in the chart. t-SNE also produces beautiful looking visualizations.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tsne_cos</span> <span class="o">=</span> <span class="nc">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
+                <span class="n">perplexity</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> 
+                <span class="n">learning_rate</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+                <span class="n">n_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> 
+                <span class="n">metric</span><span class="o">=</span><span class="sh">'</span><span class="s">cosine</span><span class="sh">'</span><span class="p">,</span> 
+                <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dist</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="nf">cosine_similarity</span><span class="p">(</span><span class="n">DTM_tfidf_lsa</span><span class="p">)</span>
+
+<span class="n">tsne_cos_coords</span> <span class="o">=</span> <span class="n">tsne_cos</span><span class="p">.</span><span class="nf">fit_transform</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[t-SNE] Computing pairwise distances...
+[t-SNE] Computing 91 nearest neighbors...
+[t-SNE] Computed conditional probabilities for sample 1000 / 3430
+[t-SNE] Computed conditional probabilities for sample 2000 / 3430
+[t-SNE] Computed conditional probabilities for sample 3000 / 3430
+[t-SNE] Computed conditional probabilities for sample 3430 / 3430
+[t-SNE] Mean sigma: 0.008588
+[t-SNE] KL divergence after 100 iterations with early exaggeration: 1.530214
+[t-SNE] Error after 250 iterations: 1.530214
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">cluster_topics</span><span class="p">):</span>
+    <span class="n">n_labels</span> <span class="o">=</span> <span class="nf">len</span><span class="p">(</span><span class="nf">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+    <span class="n">palette</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">array</span><span class="p">(</span><span class="n">sb</span><span class="p">.</span><span class="nf">color_palette</span><span class="p">(</span><span class="sh">"</span><span class="s">hls</span><span class="sh">"</span><span class="p">,</span> <span class="n">n_labels</span> <span class="p">))</span> <span class="c1"># color palette with seaborn.
+</span>    <span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="p">.</span><span class="nf">subplot</span><span class="p">(</span><span class="n">aspect</span><span class="o">=</span><span class="sh">'</span><span class="s">equal</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">sc</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="nf">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="n">labels</span><span class="p">])</span>
+    <span class="c1">#ax.axis('off')
+</span>    <span class="n">ax</span><span class="p">.</span><span class="nf">axis</span><span class="p">(</span><span class="sh">'</span><span class="s">tight</span><span class="sh">'</span><span class="p">)</span>
+    <span class="n">txts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">color_patches</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nf">range</span><span class="p">(</span><span class="n">n_labels</span><span class="p">):</span>
+        <span class="c1"># Position of each label
+</span>        <span class="n">patch</span> <span class="o">=</span> <span class="n">mpatches</span><span class="p">.</span><span class="nc">Patch</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span> <span class="sh">"</span><span class="s">Cluster %i </span><span class="sh">"</span><span class="o">%</span> <span class="n">i</span> <span class="o">+</span> <span class="sh">"</span><span class="s"> </span><span class="sh">"</span> <span class="o">+</span> <span class="n">cluster_topics</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">color_patches</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">patch</span><span class="p">)</span>
+        <span class="n">xtext</span><span class="p">,</span> <span class="n">ytext</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">median</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">ax</span><span class="p">.</span><span class="nf">text</span><span class="p">(</span><span class="n">xtext</span><span class="p">,</span> <span class="n">ytext</span><span class="p">,</span> <span class="nf">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+        <span class="n">txts</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">legend</span><span class="p">(</span><span class="n">handles</span><span class="o">=</span><span class="n">color_patches</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.04</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="sh">"</span><span class="s">upper left</span><span class="sh">"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.60</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">title</span><span class="p">(</span><span class="n">docword_file</span> <span class="o">+</span> <span class="sh">"</span><span class="se">\n</span><span class="sh">"</span> <span class="o">+</span> <span class="sh">"</span><span class="s">k = %s</span><span class="sh">"</span> <span class="o">%</span><span class="nf">len</span><span class="p">(</span><span class="nf">set</span><span class="p">(</span><span class="n">km</span><span class="p">.</span><span class="n">labels_</span><span class="p">)),</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">plt</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">scatter</span><span class="p">(</span><span class="n">tsne_cos_coords</span><span class="p">,</span> <span class="n">km</span><span class="p">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">lsa_cluster_topics</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><img src="/assets/img/output_45_0.png" alt="png"></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
+          </article>
+
+        </div>
+
+      
+    </div>
+
+    <!-- Footer -->    
+    <footer class="fixed-bottom">
+      <div class="container mt-0">
+        © Copyright 2023 Vital Vialas Fernandez. Powered by <a href="https://jekyllrb.com/" target="_blank" rel="external nofollow noopener">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Hosted by <a href="https://pages.github.com/" target="_blank" rel="external nofollow noopener">GitHub Pages</a>. Photos from <a href="https://unsplash.com" target="_blank" rel="external nofollow noopener">Unsplash</a>.
+Last updated: June 15, 2023.
+      </div>
+    </footer>
+
+    <!-- JavaScripts -->
+    <!-- jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Bootsrap & MDB scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script>
+
+    <!-- Masonry & imagesLoaded -->
+  <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+  <script defer src="/assets/js/masonry.js" type="text/javascript"></script>
+    
+  <!-- Medium Zoom JS -->
+  <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js" integrity="sha256-7PhEpEWEW0XXQ0k6kQrPKwuoIomz8R8IYyuU1Qew4P8=" crossorigin="anonymous"></script>
+  <script defer src="/assets/js/zoom.js"></script>
+
+  <!-- Bootstrap Table -->
+  <script defer src="https://unpkg.com/bootstrap-table@1.21.4/dist/bootstrap-table.min.js"></script>
+
+  <!-- Load Common JS -->
+  <script src="/assets/js/no_defer.js"></script>
+  <script defer src="/assets/js/common.js"></script>
+  <script defer src="/assets/js/copy_code.js" type="text/javascript"></script>
+
+    
+  <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+  <script async src="https://badge.dimensions.ai/badge.js"></script>
+
+    <!-- MathJax -->
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        tags: 'ams'
+      }
+    };
+  </script>
+  <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js"></script>
+  <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+    
+    
+
+<!-- Scrolling Progress Bar -->
+<script type="text/javascript">
+  /*
+   * This JavaScript code has been adapted from the article 
+   * https://css-tricks.com/reading-position-indicator/ authored by Pankaj Parashar, 
+   * published on the website https://css-tricks.com on the 7th of May, 2014.
+   * Couple of changes were made to the original code to make it compatible 
+   * with the `al-foio` theme.
+   */
+  const progressBar = $("#progress");
+  /*
+   * We set up the bar after all elements are done loading.
+   * In some cases, if the images in the page are larger than the intended
+   * size they'll have on the page, they'll be resized via CSS to accomodate
+   * the desired size. This mistake, however, breaks the computations as the
+   * scroll size is computed as soon as the elements finish loading.
+   * To account for this, a minimal delay was introduced before computing the
+   * values.
+   */
+  window.onload = function () {
+    setTimeout(progressBarSetup, 50);
+  };
+  /*
+   * We set up the bar according to the browser.
+   * If the browser supports the progress element we use that.
+   * Otherwise, we resize the bar thru CSS styling
+   */
+  function progressBarSetup() {
+    if ("max" in document.createElement("progress")) {
+      initializeProgressElement();
+      $(document).on("scroll", function() {
+        progressBar.attr({ value: getCurrentScrollPosition() });
+      });
+      $(window).on("resize", initializeProgressElement);
+    } else {
+      resizeProgressBar();
+      $(document).on("scroll", resizeProgressBar);
+      $(window).on("resize", resizeProgressBar);
+    }
+  }
+  /*
+   * The vertical scroll position is the same as the number of pixels that
+   * are hidden from view above the scrollable area. Thus, a value > 0 is
+   * how much the user has scrolled from the top
+   */
+  function getCurrentScrollPosition() {
+    return $(window).scrollTop();
+  }
+
+  function initializeProgressElement() {
+    let navbarHeight = $("#navbar").outerHeight(true);
+    $("body").css({ "padding-top": navbarHeight });
+    $("progress-container").css({ "padding-top": navbarHeight });
+    progressBar.css({ top: navbarHeight });
+    progressBar.attr({
+      max: getDistanceToScroll(),
+      value: getCurrentScrollPosition(),
+    });
+  }
+  /*
+   * The offset between the html document height and the browser viewport
+   * height will be greater than zero if vertical scroll is possible.
+   * This is the distance the user can scroll
+   */
+  function getDistanceToScroll() {
+    return $(document).height() - $(window).height();
+  }
+
+  function resizeProgressBar() {
+    progressBar.css({ width: getWidthPercentage() + "%" });
+  }
+  // The scroll ratio equals the percentage to resize the bar
+  function getWidthPercentage() {
+    return (getCurrentScrollPosition() / getDistanceToScroll()) * 100;
+  }
+</script>
+
+  </body>
+</html>
