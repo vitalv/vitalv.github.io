@@ -17,7 +17,7 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-> ![oquote]({{site.url}}/assets/img/openquote.svg){: .oquote } &nbsp;You make a great impression even though you're not flooding the Internet with social media updates :) &nbsp; ![cquote]({{site.url}}/assets/img/closequote.svg){: .cquote } 
+> ![oquote]({{site.url}}/assets/img/openquote.png){: .oquote } &nbsp;You make a great impression even though you're not flooding the Internet with social media updates :) &nbsp; ![cquote]({{site.url}}/assets/img/closequote.png){: .cquote } 
 
 
 <p style="text-align: right; margin-right: 200px; ">
